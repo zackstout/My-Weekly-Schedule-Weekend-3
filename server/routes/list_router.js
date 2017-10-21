@@ -36,6 +36,33 @@ router.get('/', function(req, res){
   });
 }); // END GET ROUTE
 
+router.get('/:id', function(req, res){
+  var color = req.params.id;
+  console.log(req.params.id);
+  pool.connect(function(errorConnectingToDb, db, done) {
+    if(errorConnectingToDb) {
+      console.log('Error connecting', errorConnectingToDb);
+      res.sendStatus(500);
+    } else {
+      //we connected to DB
+      var queryText = 'SELECT * FROM "taskstodo" WHERE "typecolor"=$1;';
+
+      if (color == '0') {
+        queryText = 'SELECT * FROM "taskstodo" WHERE ("typecolor"=$1 OR "typecolor" <> $1);';
+      }
+      db.query(queryText, [color], function(errorMakingQuery, result){
+        done();
+        if(errorMakingQuery) {
+          console.log('Error making query', errorMakingQuery);
+          res.sendStatus(500);
+        } else {
+          res.send(result.rows);
+        }
+      });
+    }
+  });
+}); // END GET ROUTE
+
 router.post('/', function(req, res){
   var task = req.body;
   console.log(task);
@@ -69,7 +96,7 @@ router.delete('/:id', function(req, res){
       res.sendStatus(500);
     } else {
       // We connected to the db!!!!! pool -1
-      var queryText = 'DELETE FROM "taskstodo" WHERE "id"=$1';
+      var queryText = 'DELETE FROM "taskstodo" WHERE "id"=$1;';
       db.query(queryText, [taskId], function (errorMakingQuery, result) {
         // We have received an error or result at this point
         done(); // pool +1

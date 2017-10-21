@@ -9,6 +9,7 @@
 
   <script src="vendors/jquery.js" charset="utf-8"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="types.js" charset="utf-8"></script>
   <script src="client.js" charset="utf-8"></script>
 </head>
 <body>
@@ -53,12 +54,16 @@
     </div>
 
     <div id="tab-2" class="tab-content">
-      <div id='order'>
-        Order by:
-        <select id="orderSelect">
-          <option value="1" id="one">due date</option>
-          <option value="2" id="two">type</option>
+      <div id='filter'>
+        Filter by:
+        <select id="filterSelect">
+          <option value="0" data-id="0">Show all</option>
+          <option value="1" data-id="blue">academics</option>
+          <option value="2" data-id="green">economic</option>
+          <option value="3" data-id="red">chores</option>
+            <option value="4" data-id="yellow">self-care</option>
         </select>
+        <button id="filterSend">Filter</button>
       <table>
         <thead>
           <tr>
