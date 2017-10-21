@@ -3,6 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var pg = require('pg');
+var thisWeek = require('../modules/moment.js');
 
 var tasks = [];
 var config = {
@@ -14,6 +15,10 @@ var config = {
 };
 
 var pool = new pg.Pool(config);
+
+router.get('/calendar', function(req, res){
+  res.send(thisWeek());
+}); // END GET ROUTE
 
 router.get('/', function(req, res){
   pool.connect(function(errorConnectingToDb, db, done) {

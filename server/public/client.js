@@ -13,6 +13,7 @@ function f1() {
   $('#viewTasks').on('click', '#del', deleteTask);
   $('#viewTasks').on('click', '#completion', completeTask);
   $('#filterSend').on('click', filterTasks);
+
   getTasks();
 
 
@@ -24,6 +25,16 @@ function f1() {
   var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
 
   $('#today').text(today);
+
+  $.ajax({
+    url: '/tasks/calendar',
+    type: 'GET'
+  }).done(function(response) {
+    console.log(response);
+  }).fail(function(msg){
+    console.log(msg);
+  });
+
 
 }
 
@@ -99,12 +110,19 @@ function appendTasks(tasks) {
     var task = tasks[i];
     var x = task.typecolor;
     var completion = '<button id="completion" data-id=" ' + task.id + '"> Done? </button>';
+    // var completion = '<input type=checkbox id="box'+i+'" data-id=" '+ task.id + '"/>';
 
-    if (task.complete) {
+    if(task.complete){
       completion = '';
     }
 
     $('#viewTasks').append('<tr id=' + i + '><td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + task.description + '</td> <td>' + task.due + '</td>  <td> '+ completion +'  </td> <td> <button id="edit" data-id=" ' + task.id + '"> Edit </button> </td> <td> <button id="del" data-id=" ' + task.id + '"> Delete </button> </td><td>' + x + '</td></tr>');
+    //
+    // if (task.complete) {
+    //   console.log('hi', '#box'+i);
+    //   $('#box'+i).prop("checked", true);
+    //
+    // }
 
     changeBackgroundColor(x, i);
   }
@@ -143,7 +161,7 @@ function deleteTask() {
 function completeTask() {
   var taskId = $(this).data("id");
   console.log('completing task..', taskId);
-  $(this).remove();
+  // $(this).remove();
   $.ajax ({
     type: "PUT",
     url: '/tasks/'+ taskId,

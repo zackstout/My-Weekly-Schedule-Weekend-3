@@ -4,6 +4,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var listRouter = require('./routes/list_router.js');
+var moment = require('moment');
+
+console.log(moment().add('days', 1).format('L'));
 
 //set up server:
 var app = express();
