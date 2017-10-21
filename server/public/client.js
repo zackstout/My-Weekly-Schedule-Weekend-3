@@ -26,23 +26,12 @@ function openAddType() {
 }
 
 function addType() {
-  var blue = $('#blue').val();
-  var green = $('#green').val();
-  var red = $('#red').val();
-  var yellow = $('#yellow').val();
-  var newTypes = {
-    blue: blue,
-    green: green,
-    red: red,
-    yellow: yellow
-  };
-  console.log(newTypes);
-
-  var newOptions = {"1": blue,
-  "2": green,
-  "3": red,
-  "4": yellow
+  var newOptions = {"1": $('#blue').val(),
+  "2": $('#green').val(),
+  "3": $('#red').val(),
+  "4": $('#yellow').val()
 };
+console.log(newOptions);
 
 var $el = $("#typeSelect");
 $el.empty();
@@ -56,7 +45,7 @@ $.each(newOptions, function(key,value) {
 function addTask(task) {
   var objectSent = {
     name: $('#task').val(),
-    type: $('#type').val(),
+    type: $('#typeSelect option:selected').text(),
     description: $('#desc').val(),
     due: $('#due').val(),
     complete: 'false'
