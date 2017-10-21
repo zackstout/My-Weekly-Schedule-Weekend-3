@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var listRouter = require('./routes/list_router.js');
 var moment = require('moment');
 
-console.log(moment().add('days', 1).format('L'));
+// console.log(moment().add(1, 'days').format('L'));
 
 //set up server:
 var app = express();

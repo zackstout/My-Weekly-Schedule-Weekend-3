@@ -27,25 +27,27 @@ function updateWeek(arr) {
   // }
   // console.log(row);
   $('#week').prepend(row);
-  updateTasks();
+  updateTasks(arr);
 
 }
 
-function updateTasks() {
-  var a = [], b = [], c = [], d = [], e = [], f = [], g = [];
-  getMyWeek();
+function updateTasks(week) {
+  console.log(week);
 
-  $('#day1').append('<li>' + '</li>');
-}
-
-function getMyWeek() {
   $.ajax({
     url: '/tasks/week',
     type: 'GET'
   }).done(function(response) {
     console.log(response);
-
-
+    for (var i = 0; i < response.length; i++) {
+      for (var j = 0; j < week.length; j++) {
+        if (response[i].due == week[j]) {
+          console.log(response[i]);
+          var k = j+1;
+          $('#day' + k).append('<li>' + response[i].name + '</li>');
+        }
+      }
+    }
   }).fail(function(msg) {
     console.log(msg);
   });

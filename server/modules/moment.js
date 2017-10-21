@@ -1,6 +1,6 @@
 
 var moment = require('moment');
-console.log(moment().add(0, 'days').format('L'));
+// console.log(moment().add(0, 'days').format('L'));
 
 function nextWeek(){
   var week = [];

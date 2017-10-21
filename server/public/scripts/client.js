@@ -105,3 +105,10 @@ function changeBackgroundColor(x, i) {
     $('#' + i).css('background-color', 'yellow');
   }
 }
+
+
+/*
+--presumably want new types to be stored and remembered
+--want animation upon completion of task, prob append an image?
+--
+*/

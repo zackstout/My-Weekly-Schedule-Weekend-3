@@ -19,10 +19,10 @@ var pool = new pg.Pool(config);
 var week = thisWeek();
 var endOfWeek = week[6];
 var startOfWeek = week[0];
-console.log(endOfWeek);
+// console.log(endOfWeek);
 
 router.get('/calendar', function(req, res){
-  res.send(thisWeek());
+  res.send(week);
 }); // END GET ROUTE
 
 router.get('/week', function(req, res) {
@@ -32,7 +32,7 @@ router.get('/week', function(req, res) {
       res.sendStatus(500);
     } else {
       //we connected to DB
-      var queryText = 'SELECT * FROM "taskstodo" WHERE (due >= $1 AND due <= $2);';
+      var queryText = 'SELECT * FROM "taskstodo" WHERE ("due" >= $1 AND "due" <= $2 AND "complete"=false);';
       db.query(queryText, [startOfWeek, endOfWeek], function(errorMakingQuery, result){
         done();
         if(errorMakingQuery) {
