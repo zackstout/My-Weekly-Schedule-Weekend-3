@@ -9,8 +9,10 @@
 
   <script src="vendors/jquery.js" charset="utf-8"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-  <script src="types.js" charset="utf-8"></script>
-  <script src="client.js" charset="utf-8"></script>
+  <script src="scripts/types.js" charset="utf-8"></script>
+  <script src="scripts/extra-buttons.js" charset="utf-8"></script>
+  <script src="scripts/calendar.js" charset="utf-8"></script>
+  <script src="scripts/client.js" charset="utf-8"></script>
 </head>
 <body>
   <h1> what up </h1>
@@ -84,11 +86,27 @@
   </div>
 
     <div id="tab-3" class="tab-content">
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <table>
+        <thead>
+
+        </thead>
+        <tbody id="week">
+          <tr>
+            <td><ul id="day1"></ul></td>
+            <td><ul id="day2"></ul></td>
+            <td><ul id="day3"></ul></td>
+            <td><ul id="day4"></ul></td>
+            <td><ul id="day5"></ul></td>
+            <td><ul id="day6"></ul></td>
+            <td><ul id="day7"></ul></td>
+          </tr>
+        </tbody>
+
+      </table>
     </div>
 
     <div id="tab-4" class="tab-content">
-    
+
  </div>
   </div>
 

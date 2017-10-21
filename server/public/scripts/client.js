@@ -7,35 +7,16 @@ function f1() {
   console.log('jq');
   $('#due').datepicker();
   $('.tab-link').on('click', changeTabs);
+
   $('#addTypes').on('click', openAddType);
   $('.container').on('click', '#update', addType);
+
   $('#submit').on('click', addTask);
   $('#viewTasks').on('click', '#del', deleteTask);
   $('#viewTasks').on('click', '#completion', completeTask);
   $('#filterSend').on('click', filterTasks);
-
   getTasks();
-
-
-  var now = new Date();
-
-  var day = ("0" + now.getDate()).slice(-2);
-  var month = ("0" + (now.getMonth() + 1)).slice(-2);
-
-  var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
-
-  $('#today').text(today);
-
-  $.ajax({
-    url: '/tasks/calendar',
-    type: 'GET'
-  }).done(function(response) {
-    console.log(response);
-  }).fail(function(msg){
-    console.log(msg);
-  });
-
-
+  getTime();
 }
 
 //from codepen
@@ -47,7 +28,6 @@ function changeTabs() {
   $('#' + tab_id).addClass('current');
 }
 
-
 function addTask(task) {
   var objectSent = {
     name: $('#task').val(),
@@ -58,7 +38,7 @@ function addTask(task) {
     typecolor: $('#typeSelect option:selected').data().id
   };
   postTask(objectSent);
-  console.log(objectSent);
+  // console.log(objectSent);
 }
 
 function postTask(task) {
@@ -88,20 +68,6 @@ function getTasks() {
 
 }
 
-function filterTasks() {
-  var filter = $('#filterSelect option:selected');
-  console.log(filter.text(), 'hi', filter.data().id);
-
-  $.ajax({
-    url: '/tasks/' + filter.data().id,
-    type: 'GET'
-  }).done(function(response) {
-    appendTasks(response);
-
-  }).fail(function(msg) {
-    console.log(msg);
-  });
-}
 
 function appendTasks(tasks) {
   $('#viewTasks').empty();
@@ -138,39 +104,4 @@ function changeBackgroundColor(x, i) {
   } else if (x === 'yellow') {
     $('#' + i).css('background-color', 'yellow');
   }
-}
-
-function deleteTask() {
-  var taskId = $(this).data("id");
-  console.log("deleted task ...",  $(this).data("id"));
-  if (confirm("Are you sure???")) {
-    $.ajax ({
-      type: 'DELETE',
-      url: '/tasks/' + taskId,
-    }).done(function(response){
-      console.log(response);
-      $(this).parent().parent().remove();
-      getTasks();
-    }).fail(function(error){
-      console.log('Sad tasks :(');
-    });
-  }
-  return false;
-}
-
-function completeTask() {
-  var taskId = $(this).data("id");
-  console.log('completing task..', taskId);
-  // $(this).remove();
-  $.ajax ({
-    type: "PUT",
-    url: '/tasks/'+ taskId,
-  }).done(function(response){
-    console.log(response);
-    getTasks();
-  });
-}
-
-function editTask() {
-
 }
