@@ -6,7 +6,8 @@ console.log('js');
 function f1() {
   console.log('jq');
   $('.tab-link').on('click', changeTabs);
-  $('#addType').on('click', addType);
+  $('#addTypes').on('click', openAddType);
+  $('.container').on('click', '#update', addType);
   $('#submit').on('click', addTask);
   getTasks();
 }
@@ -14,27 +15,41 @@ function f1() {
 //from codepen
 function changeTabs() {
   var tab_id = $(this).data().tab;
-
   $('.tab-link').removeClass('current');
   $('.tab-content').removeClass('current');
-
   $(this).addClass('current');
   $('#' + tab_id).addClass('current');
 }
 
-function addType() {
-  // var blue = $('#type1').val();
-  // var green = $('#type2').val();
-  // var red = $('#type3').val();
-  // var yellow = $('#type4').val();
-  var newTypes = {};
+function openAddType() {
+  $('#typeDiv').show();
+}
 
-  for (var i = 1; i <=4; i++) {
-    if ($('#type' + i) !== '') {
-      newTypes.i = $('#type' + i).val();
-    }
-  }
+function addType() {
+  var blue = $('#blue').val();
+  var green = $('#green').val();
+  var red = $('#red').val();
+  var yellow = $('#yellow').val();
+  var newTypes = {
+    blue: blue,
+    green: green,
+    red: red,
+    yellow: yellow
+  };
   console.log(newTypes);
+
+  var newOptions = {"1": blue,
+  "2": green,
+  "3": red,
+  "4": yellow
+};
+
+var $el = $("#typeSelect");
+$el.empty();
+$.each(newOptions, function(key,value) {
+  $el.append($("<option></option>")
+  .attr("value", value).text(value));
+});
 
 }
 
@@ -79,11 +94,11 @@ function getTasks() {
 function appendTasks(tasks) {
   $('#viewTasks').empty();
   for (var i = 0; i < tasks.length; i++) {
-        //added an 's'
-        var task = tasks[i];
-        var $trow = $('#viewTasks').append('<tr></tr>');
-          $($trow).append('<td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + task.description + '</td> <td>' + task.due + '</td>  <td> '+ task.complete +'  </td>');
-        }
+    //added an 's'
+    var task = tasks[i];
+    var $trow = $('#viewTasks').append('<tr></tr>');
+    $($trow).append('<td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + task.description + '</td> <td>' + task.due + '</td>  <td> '+ task.complete +'  </td>');
+  }
 }
 //
 // function deleteTask() {

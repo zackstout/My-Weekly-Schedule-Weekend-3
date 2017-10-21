@@ -27,3 +27,9 @@ ul.tabs{
 		.tab-content.current{
 			display: inherit;
 		}
+
+
+
+    #typeDiv{
+      display: none;
+    }

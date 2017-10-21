@@ -1,64 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>To Do List!</title>
-    <script src="vendors/jquery.js" charset="utf-8"></script>
-    <script src="client.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1> what up </h1>
+<head>
+  <meta charset="utf-8">
+  <title>To Do List!</title>
+  <script src="vendors/jquery.js" charset="utf-8"></script>
+  <script src="client.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1> what up </h1>
 
-    <div class="container">
-    	<ul class="tabs">
-    		<li class="tab-link current" data-tab="tab-1">New Task</li>
-    		<li class="tab-link" data-tab="tab-2">All Tasks</li>
-        <li class="tab-link" data-tab="tab-2">Calendar</li>
-        <li class="tab-link" data-tab="tab-2">Add Types</li>
-    	</ul>
+  <div class="container">
+    <ul class="tabs">
+      <li class="tab-link current" data-tab="tab-1">New Task</li>
+      <li class="tab-link" data-tab="tab-2">All Tasks</li>
+      <li class="tab-link" data-tab="tab-3">Calendar</li>
+      <li class="tab-link" data-tab="tab-4">Add Types</li>
+    </ul>
 
-    	<div id="tab-1" class="tab-content current">
-        Task: <input type="text" id="task"/></br>
-        Type: <input type="text" id="type"/>  <button id="addTypes">Add new types!</button> </br>
-        Description: <input type="text" id="desc"/></br>
-        Due Date: <input type="text" id="due"/></br>
-        <button id="submit">Submit!</button>
+    <div id="tab-1" class="tab-content current">
+      Task: <input type="text" id="task"/></br>
+      Type: <select id="typeSelect">
+        <option value="1">academics</option>
+        <option value="2">economic</option>
+        <option value="3">chores</option>
+        <option value="4">self-care</option>
+      </select>
+      <button id="addTypes">Add new types!</button> </br>
+      Description: <input type="text" id="desc"/></br>
+      Due Date: <input type="text" id="due"/></br>
+      <button id="submit">Submit!</button>
 
-        <div id="typeDiv">
-          <table>
-            <tr><td></td><td>Type name</td></tr>
-            <tr><td>blue</td><td><input type="text" id="type1"/></td></tr>
-            <tr><td>green</td><td><input type="text" id="type2"/></td></tr>
-            <tr><td>red</td><td><input type="text" id="type3"/></td></tr>
-            <tr><td>yellow</td><td><input type="text" id="type4"/></td></tr>
-          </table>
-          <button id="update">Update types!</button>
-        </div>
-      </div>
-    	<div id="tab-2" class="tab-content">
+      <div id="typeDiv">
         <table>
-          <thead>
-            <tr>
-              <th>Task</th>
-              <th>Type</th>
-              <th>Description</th>
-              <th>Due Date</th>
-              <th>Completed?</th>
-            </tr>
-          </thead>
-          <tbody id ="viewTasks">
-          </tbody>
+          <tr><td></td><td>Type name</td></tr>
+          <tr><td>blue</td><td><input type="text" id="blue"/></td></tr>
+          <tr><td>green</td><td><input type="text" id="green"/></td></tr>
+          <tr><td>red</td><td><input type="text" id="red"/></td></tr>
+          <tr><td>yellow</td><td><input type="text" id="yellow"/></td></tr>
         </table>
+        <button id="update">Update types!</button>
       </div>
-      <div id="tab-3" class="tab-content">
-    		 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    	</div>
-      <div id="tab-4" class="tab-content">
-    		 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    	</div>
     </div>
 
+    <div id="tab-2" class="tab-content">
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Completed?</th>
+          </tr>
+        </thead>
+        <tbody id ="viewTasks">
+        </tbody>
+      </table>
+    </div>
 
-  </body>
+    <div id="tab-3" class="tab-content">
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+
+    <div id="tab-4" class="tab-content">
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+  </div>
+
+
+</body>
 </html>
