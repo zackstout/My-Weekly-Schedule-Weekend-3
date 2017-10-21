@@ -47,7 +47,7 @@ router.get('/:id', function(req, res){
       //we connected to DB
       var queryText = 'SELECT * FROM "taskstodo" WHERE "typecolor"=$1;';
 
-      if (color == '0') {
+      if (color == '0' || color == 'alpha') {
         queryText = 'SELECT * FROM "taskstodo" WHERE ("typecolor"=$1 OR "typecolor" <> $1);';
       }
       db.query(queryText, [color], function(errorMakingQuery, result){
