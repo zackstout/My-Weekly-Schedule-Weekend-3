@@ -3,9 +3,13 @@
 <head>
   <meta charset="utf-8">
   <title>To Do List!</title>
-  <script src="vendors/jquery.js" charset="utf-8"></script>
-  <script src="client.js" charset="utf-8"></script>
+
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="style.css">
+
+  <script src="vendors/jquery.js" charset="utf-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="client.js" charset="utf-8"></script>
 </head>
 <body>
   <h1> what up </h1>
@@ -28,7 +32,7 @@
       </select>
       <button id="addTypes">Add new types!</button> </br>
       Description: <input type="text" id="desc"/></br>
-      Due Date: <input type="text" id="due"/></br>
+      Due Date: <input id="due"/></br>
       <button id="submit">Submit!</button>
 
       <div id="typeDiv">

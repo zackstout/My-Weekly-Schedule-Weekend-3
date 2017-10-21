@@ -5,6 +5,7 @@ console.log('js');
 
 function f1() {
   console.log('jq');
+  $('#due').datepicker();
   $('.tab-link').on('click', changeTabs);
   $('#addTypes').on('click', openAddType);
   $('.container').on('click', '#update', addType);
