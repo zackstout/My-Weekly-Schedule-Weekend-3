@@ -141,16 +141,19 @@ function changeBackgroundColor(x, i) {
 function deleteTask() {
   var taskId = $(this).data("id");
   console.log("deleted task ...",  $(this).data("id"));
-  $.ajax ({
-    type: 'DELETE',
-    url: '/tasks/' + taskId,
-  }).done(function(response){
-    console.log(response);
-    $(this).parent().parent().remove();
-    getTasks();
-  }).fail(function(error){
-    console.log('Sad tasks :(');
-  });
+  if (confirm("Are you sure???")) {
+    $.ajax ({
+      type: 'DELETE',
+      url: '/tasks/' + taskId,
+    }).done(function(response){
+      console.log(response);
+      $(this).parent().parent().remove();
+      getTasks();
+    }).fail(function(error){
+      console.log('Sad tasks :(');
+    });
+  }
+  return false;
 }
 
 function completeTask() {
