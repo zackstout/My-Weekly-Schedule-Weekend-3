@@ -21,10 +21,10 @@
     <div id="tab-1" class="tab-content current">
       Task: <input type="text" id="task"/></br>
       Type: <select id="typeSelect">
-        <option value="1">academics</option>
-        <option value="2">economic</option>
-        <option value="3">chores</option>
-        <option value="4">self-care</option>
+        <option value="1" data-id="blue">academics</option>
+        <option value="2" data-id="green">economic</option>
+        <option value="3" data-id="red">chores</option>
+        <option value="4" data-id="yellow">self-care</option>
       </select>
       <button id="addTypes">Add new types!</button> </br>
       Description: <input type="text" id="desc"/></br>
@@ -34,16 +34,27 @@
       <div id="typeDiv">
         <table>
           <tr><td></td><td>Type name</td></tr>
-          <tr><td>blue</td><td><input type="text" id="blue"/></td></tr>
-          <tr><td>green</td><td><input type="text" id="green"/></td></tr>
-          <tr><td>red</td><td><input type="text" id="red"/></td></tr>
-          <tr><td>yellow</td><td><input type="text" id="yellow"/></td></tr>
+          <tr><td>blue</td><td><input type="text" id="blue" data-id="blue"/></td></tr>
+          <tr><td>green</td><td><input type="text" id="green" data-id="green"/></td></tr>
+          <tr><td>red</td><td><input type="text" id="red" data-id="red"/></td></tr>
+          <tr><td>yellow</td><td><input type="text" id="yellow" data-id="yellow"/></td></tr>
         </table>
         <button id="update">Update types!</button>
+      </div>
+
+      <div> Today's date:
+        <div id="today">
+        </div>
       </div>
     </div>
 
     <div id="tab-2" class="tab-content">
+      <div id='order'>
+        Order by:
+        <select id="orderSelect">
+          <option value="1" id="one">due date</option>
+          <option value="2" id="two">type</option>
+        </select>
       <table>
         <thead>
           <tr>
@@ -52,12 +63,16 @@
             <th>Description</th>
             <th>Due Date</th>
             <th>Completed?</th>
+            <th>Edit?</th>
+            <th>Delete?</th>
+            <th>color</th>
           </tr>
         </thead>
         <tbody id ="viewTasks">
         </tbody>
       </table>
     </div>
+  </div>
 
     <div id="tab-3" class="tab-content">
       Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

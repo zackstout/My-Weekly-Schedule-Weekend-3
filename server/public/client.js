@@ -10,6 +10,17 @@ function f1() {
   $('.container').on('click', '#update', addType);
   $('#submit').on('click', addTask);
   getTasks();
+
+
+  var now = new Date();
+
+var day = ("0" + now.getDate()).slice(-2);
+var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+
+$('#today').text(today);
+
 }
 
 //from codepen
@@ -25,20 +36,32 @@ function openAddType() {
   $('#typeDiv').show();
 }
 
+
 function addType() {
-  var newOptions = {"1": $('#blue').val(),
-  "2": $('#green').val(),
-  "3": $('#red').val(),
-  "4": $('#yellow').val()
+
+  var newOptions = {blue: $('#blue').val(),
+  green: $('#green').val(),
+  red: $('#red').val(),
+  yellow: $('#yellow').val()
 };
 console.log(newOptions);
 
 var $el = $("#typeSelect");
+
 $el.empty();
 $.each(newOptions, function(key,value) {
+  console.log("value", value, "key", key);
+  if (value != '') {
+  $el.append($("<option></option>")
+  .data("id", key)
+  .attr("value", value).text(value));
+} else {
   $el.append($("<option></option>")
   .attr("value", value).text(value));
+}
 });
+
+$('#typeDiv').hide();
 
 }
 
@@ -48,10 +71,11 @@ function addTask(task) {
     type: $('#typeSelect option:selected').text(),
     description: $('#desc').val(),
     due: $('#due').val(),
-    complete: 'false'
+    complete: 'false',
+    typecolor: $('#typeSelect option:selected').data().id
   };
   postTask(objectSent);
-
+console.log(objectSent);
 }
 
 function postTask(task) {
@@ -82,11 +106,28 @@ function getTasks() {
 
 function appendTasks(tasks) {
   $('#viewTasks').empty();
+
   for (var i = 0; i < tasks.length; i++) {
-    //added an 's'
     var task = tasks[i];
-    var $trow = $('#viewTasks').append('<tr></tr>');
-    $($trow).append('<td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + task.description + '</td> <td>' + task.due + '</td>  <td> '+ task.complete +'  </td>');
+    var x = task.typecolor;
+    // var $trow = $('#viewTasks').append('<tr class=color' + x + ' id=' + i + '></tr>');
+    var completion = '<button id="completion"> Done? </button>';
+    if (task.complete) {
+      completion = '';
+    }
+    $('#viewTasks').append('<tr id=' + i + '><td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + task.description + '</td> <td>' + task.due + '</td>  <td> '+ completion +'  </td> <td> <button id="edit"> Edit </button> </td> <td> <button id="del"> Delete </button> </td><td>' + x + '</td></tr>');
+
+    console.log($('#' + i));
+
+    if (x === 'blue') {
+      $('#' + i).css('background-color', 'blue');
+    } else if (x === 'green') {
+      $('#' + i).css('background-color', 'green');
+    } else if (x === 'red') {
+      $('#' + i).css('background-color', 'red');
+    } else if (x === 'yellow') {
+      $('#' + i).css('background-color', 'yellow');
+    }
   }
 }
 //

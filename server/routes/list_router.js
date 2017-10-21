@@ -48,8 +48,8 @@ router.post('/', function(req, res){
       // We connected to the db!!!!! pool -1
 
       //wait it's really weird that in "task.x" x has to match column name and not object name............
-      var queryText = 'INSERT INTO "taskstodo" ("name", "type", "description", "due", "complete") VALUES ($1, $2, $3, $4, $5);';
-      db.query(queryText, [task.name, task.type, task.description, task.due, task.complete], function (errorMakingQuery, result) {
+      var queryText = 'INSERT INTO "taskstodo" ("name", "type", "description", "due", "complete", "typecolor") VALUES ($1, $2, $3, $4, $5, $6);';
+      db.query(queryText, [task.name, task.type, task.description, task.due, task.complete, task.typecolor], function (errorMakingQuery, result) {
         // We have received an error or result at this point
         done(); // pool +1
         if (errorMakingQuery) {
