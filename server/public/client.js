@@ -9,6 +9,8 @@ function f1() {
   $('#addTypes').on('click', openAddType);
   $('.container').on('click', '#update', addType);
   $('#submit').on('click', addTask);
+  $('#viewTasks').on('click', '#del', deleteTask);
+  $('#viewTasks').on('click', '#completion', completeTask);
   getTasks();
 
 
@@ -111,53 +113,57 @@ function appendTasks(tasks) {
     var task = tasks[i];
     var x = task.typecolor;
     // var $trow = $('#viewTasks').append('<tr class=color' + x + ' id=' + i + '></tr>');
-    var completion = '<button id="completion"> Done? </button>';
+    var completion = '<button id="completion" data-id=" ' + task.id + '"> Done? </button>';
     if (task.complete) {
       completion = '';
     }
-    $('#viewTasks').append('<tr id=' + i + '><td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + task.description + '</td> <td>' + task.due + '</td>  <td> '+ completion +'  </td> <td> <button id="edit"> Edit </button> </td> <td> <button id="del"> Delete </button> </td><td>' + x + '</td></tr>');
+    $('#viewTasks').append('<tr id=' + i + '><td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + task.description + '</td> <td>' + task.due + '</td>  <td> '+ completion +'  </td> <td> <button id="edit" data-id=" ' + task.id + '"> Edit </button> </td> <td> <button id="del" data-id=" ' + task.id + '"> Delete </button> </td><td>' + x + '</td></tr>');
 
     console.log($('#' + i));
+    changeBackgroundColor(x, i);
 
-    if (x === 'blue') {
-      $('#' + i).css('background-color', 'blue');
-    } else if (x === 'green') {
-      $('#' + i).css('background-color', 'green');
-    } else if (x === 'red') {
-      $('#' + i).css('background-color', 'red');
-    } else if (x === 'yellow') {
-      $('#' + i).css('background-color', 'yellow');
-    }
   }
 }
-//
-// function deleteTask() {
-//   var koalaId = $(this).data("id");
-//   console.log("deleted Koala :(",  $(this).data("id"));
-//   $.ajax ({
-//     type: 'DELETE',
-//     url: '/koalas/' + koalaId,
-//   }).done(function(response){
-//     console.log(response);
-//     $(this).parent().parent().remove();
-//     getKoalas();
-//   }).fail(function(error){
-//     console.log('Sad Koalas :(');
-//   });
-// }
-//
-// function completeTask() {
-//   var koalaId = $(this).data("id");
-// console.log('super ready koalas!');
-//   $(this).remove();
-// $.ajax ({
-//   type: "PUT",
-//   url: '/koalas/'+ koalaId,
-// }).done(function(response){
-//   console.log(response);
-//   getKoalas();
-// });
-// }
+
+function changeBackgroundColor(x, i) {
+      if (x === 'blue') {
+        $('#' + i).css('background-color', 'blue');
+      } else if (x === 'green') {
+        $('#' + i).css('background-color', 'green');
+      } else if (x === 'red') {
+        $('#' + i).css('background-color', 'red');
+      } else if (x === 'yellow') {
+        $('#' + i).css('background-color', 'yellow');
+      }
+}
+
+function deleteTask() {
+  var taskId = $(this).data("id");
+  console.log("deleted task ...",  $(this).data("id"));
+  $.ajax ({
+    type: 'DELETE',
+    url: '/tasks/' + taskId,
+  }).done(function(response){
+    console.log(response);
+    $(this).parent().parent().remove();
+    getTasks();
+  }).fail(function(error){
+    console.log('Sad tasks :(');
+  });
+}
+
+function completeTask() {
+  var taskId = $(this).data("id");
+console.log('completing task..', taskId);
+  $(this).remove();
+$.ajax ({
+  type: "PUT",
+  url: '/tasks/'+ taskId,
+}).done(function(response){
+  console.log(response);
+  getTasks();
+});
+}
 
 function editTask() {
 

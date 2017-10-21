@@ -61,6 +61,58 @@ router.post('/', function(req, res){
       }); // END QUERY
     }
   }); // END POOL
-});
+}); //END POST ROUTE
+
+router.delete('/:id', function(req, res){
+  var taskId = req.params.id;
+  console.log(taskId);
+  // res.sendStatus(200);
+  pool.connect(function (errorConnectingToDb, db, done) {
+    if (errorConnectingToDb) {
+      console.log('Error connecting', errorConnectingToDb);
+      res.sendStatus(500);
+    } else {
+      // We connected to the db!!!!! pool -1
+      var queryText = 'DELETE FROM "taskstodo" WHERE "id"=$1';
+      db.query(queryText, [taskId], function (errorMakingQuery, result) {
+        // We have received an error or result at this point
+        done(); // pool +1
+        if (errorMakingQuery) {
+          console.log('Error making query', errorMakingQuery);
+          res.sendStatus(500);
+        } else {
+          // Send back success!
+          res.sendStatus(201);
+        }
+      }); // END QUERY
+    }
+  }); // END POOL
+}); //END DELETE ROUTE
+
+router.put('/:id', function(req,res){
+  var taskId = req.params.id;
+  console.log(taskId);
+  //res.sendStatus(200);
+  pool.connect(function (errorConnectingToDb, db, done) {
+    if (errorConnectingToDb) {
+      console.log('Error connecting', errorConnectingToDb);
+      res.sendStatus(500);
+    } else {
+      // We connected to the db!!!!! pool -1
+      var queryText = 'UPDATE "taskstodo" SET "complete" = true WHERE "id" = $1;';
+      db.query(queryText, [taskId], function (errorMakingQuery, result) {
+        // We have received an error or result at this point
+        done(); // pool +1
+        if (errorMakingQuery) {
+          console.log('Error making query', errorMakingQuery);
+          res.sendStatus(500);
+        } else {
+          // Send back success!
+          res.sendStatus(201);
+        }
+      }); // END QUERY
+    }
+  }); // END POOL
+}); //END PUT ROUTE
 
 module.exports = router;
