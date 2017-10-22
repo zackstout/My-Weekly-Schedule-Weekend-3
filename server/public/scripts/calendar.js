@@ -67,7 +67,7 @@ for (var i = 0; i < response.length; i++) {
       if (color == 'blue'){
         $('#cal'+color+i).css('background-color', 'rgba(0, 0, 255, 0.5)');
       } else if (color == 'green'){
-        $('#cal'+color+i).css('background-color', 'rgba(0, 255, 0, 0.5)');
+        $('#cal'+color+i).css('background-color', 'rgb(51, 153, 51, 0.5)');
       } else if (color == 'red'){
         $('#cal'+color+i).css('background-color', 'rgba(255, 0, 0, 0.5)');
       } else if (color == 'yellow'){

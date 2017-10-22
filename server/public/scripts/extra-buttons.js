@@ -54,10 +54,11 @@ function completeTask() {
 function editTask() {
   editing = true;
   editingId = $(this).data('id');
-  console.log(editingId);
+  // console.log(editingId);
   $('#sub').text('Editing task!');
   var name = $(this).closest('tr').data().name; // data we set when appending
-  var desc = $(this).closest('tr').data().desc;
+  var desc = $(this).closest('tr').data().description;
+  console.log(name, desc);
   $('#name').val(name);
   $('#desc').val(desc);
 
