@@ -42,6 +42,24 @@ ul.tabs{
 
 		}
 
+		.box {
+			height:50px;
+			width:50px;
+		}
+
+		#bluebox, #bluebox2 {
+			background-color: blue;
+		}
+		#redbox, #redbox2 {
+			background-color: red;
+		}
+		#yellowbox, #yellowbox2 {
+			background-color: yellow;
+		}
+		#greenbox, #greenbox2 {
+			background-color: green;
+		}
+
 td {
 	padding: 3px;
 	font-size: 14px;

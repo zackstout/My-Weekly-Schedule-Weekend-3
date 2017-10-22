@@ -16,6 +16,7 @@ function addType() {
   updateFilter(newOptions);
   updateOptions(newOptions);
   storeTypes(newOptions);
+  // getTypes();
   $('#typeDiv').hide();
 }
 
@@ -46,16 +47,31 @@ function getTypes() {
       red: x.red,
       yellow: x.yellow
     };
-    $('#blue').val(x.blue);
-    $('#green').val(x.green);
-    $('#red').val(x.red);
-    $('#yellow').val(x.yellow);
+    updateKeys(x);
+
     console.log('we got', response, y);
     updateOptions(y);
 
   }).fail(function(msg){
     console.log(msg);
   });
+}
+
+function updateKeys(x) {
+  $('#blue').val(x.blue);
+  $('#green').val(x.green);
+  $('#red').val(x.red);
+  $('#yellow').val(x.yellow);
+
+  $('#bluetype').text(x.blue);
+  $('#greentype').text(x.green);
+  $('#redtype').text(x.red);
+  $('#yellowtype').text(x.yellow);
+
+  $('#bluetype2').text(x.blue);
+  $('#greentype2').text(x.green);
+  $('#redtype2').text(x.red);
+  $('#yellowtype2').text(x.yellow);
 }
 
 //updates the drop-down selector to reflect chosen types:
