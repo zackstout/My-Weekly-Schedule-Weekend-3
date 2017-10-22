@@ -65,13 +65,13 @@ for (var i = 0; i < response.length; i++) {
 
 //rather clumsy way of setting background colors of tasks in calendar:
       if (color == 'blue'){
-        $('#cal'+color+i).css('background-color', 'blue');
+        $('#cal'+color+i).css('background-color', 'rgba(0, 0, 255, 0.5)');
       } else if (color == 'green'){
-        $('#cal'+color+i).css('background-color', 'green');
+        $('#cal'+color+i).css('background-color', 'rgba(0, 255, 0, 0.5)');
       } else if (color == 'red'){
-        $('#cal'+color+i).css('background-color', 'red');
+        $('#cal'+color+i).css('background-color', 'rgba(255, 0, 0, 0.5)');
       } else if (color == 'yellow'){
-        $('#cal'+color+i).css('background-color', 'yellow');
+        $('#cal'+color+i).css('background-color', 'rgba(255, 255, 102, 0.5)');
       }
     }
   }

@@ -48,5 +48,22 @@ function completeTask() {
 }
 
 function editTask() {
+  editing = true;
+  editingId = $(this).data('id');
+  $('#sub').text('Editing task!');
+  var existingData = $(this).closest('tr').data().task; // data we set when appending
+  $('#name').val(existingData.name);
+  $('#desc').val(existingData.description);
+}
 
+function updateTask(task) {
+  $.ajax({
+    type: 'PUT',
+    url: 'tasks/' + editingId,
+    data: task
+  }).done(function(response) {
+    getTasks();
+  }).fail(function(msg) {
+    console.log(msg);
+  });
 }

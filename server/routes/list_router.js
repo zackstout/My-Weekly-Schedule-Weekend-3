@@ -220,4 +220,29 @@ router.put('/:id', function(req,res){
   }); // END POOL
 }); //END PUT ROUTE
 
+router.put('/:id', function(req, res){
+  var taskId = req.params.id;
+  var task = req.body;
+  pool.connect(function (errorConnectingToDb, db, done) {
+    if (errorConnectingToDb) {
+      console.log('Error connecting', errorConnectingToDb);
+      res.sendStatus(500);
+    } else {
+      // We connected to the db!!!!! pool -1
+      var queryText = 'UPDATE "taskstodo" SET "name" = $1, "type" = $2, "description" = $3, "due" = $4 WHERE "id" = $5;';
+      db.query(queryText, [task.name, task.type, task.description, task.due, taskId], function (errorMakingQuery, result) {
+        // We have received an error or result at this point
+        done(); // pool +1
+        if (errorMakingQuery) {
+          console.log('Error making query', errorMakingQuery);
+          res.sendStatus(500);
+        } else {
+          // Send back success!
+          res.sendStatus(201);
+        }
+      }); // END QUERY
+    }
+  }); // END POOL
+});
+
 module.exports = router;

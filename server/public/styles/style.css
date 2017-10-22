@@ -51,13 +51,13 @@ ul.tabs{
 			background-color: blue;
 		}
 		#redbox, #redbox2 {
-			background-color: red;
+			background-color: crimson;
 		}
 		#yellowbox, #yellowbox2 {
-			background-color: yellow;
+			background-color: Yellow;
 		}
 		#greenbox, #greenbox2 {
-			background-color: green;
+			background-color: forestGreen;
 		}
 
 td {

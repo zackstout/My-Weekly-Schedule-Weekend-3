@@ -11,9 +11,10 @@ function f1() {
   $('#addTypes').on('click', openAddType);
   $('.container').on('click', '#update', addType);
 
-  $('#submit').on('click', addTask);
+  $('#submit').on('click', subClicked);
   $('#viewTasks').on('click', '#del', deleteTask);
   $('#viewTasks').on('click', '#completion', completeTask);
+  $('#viewTasks').on('click', '#edit', editTask);
   $('#filterSend').on('click', filterTasks);
   getTasks();
   getTime();
@@ -29,7 +30,7 @@ function changeTabs() {
   $('#' + tab_id).addClass('current');
 }
 
-function addTask(task) {
+function subClicked() {
   var objectSent = {
     name: $('#task').val(),
     type: $('#typeSelect option:selected').text(),
@@ -39,6 +40,18 @@ function addTask(task) {
     typecolor: $('#typeSelect option:selected').data().id
   };
   postTask(objectSent);
+  if(editing) {
+      // Switch back to add new product mode
+      editing = false;
+      $('#sub').text('Add a new task!');
+      updateTask(objectSent);
+    } else {
+      addTask(objectSent);
+    }
+}
+
+function addTask(task) {
+
   // console.log(objectSent);
 }
 
@@ -58,49 +71,7 @@ function postTask(task) {
   getWeek();
 }
 
-function getTasks() {
 
-  $.ajax({
-    url: '/tasks',
-    type: 'GET'
-  }).done(function(response) {
-    appendTasks(response);
-
-  }).fail(function(msg) {
-    console.log(msg);
-  });
-
-}
-
-function appendTasks(tasks) {
-  $('#viewTasks').empty();
-
-  for (var i = 0; i < tasks.length; i++) {
-    var task = tasks[i];
-    var x = task.typecolor;
-    var completion = '<button id="completion" data-id=" ' + task.id + '"> Done? </button>';
-
-    if(task.complete){
-      completion = '';
-    }
-
-    $('#viewTasks').append('<tr id=' + i + '><td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + task.description + '</td> <td>' + task.due + '</td>  <td> '+ completion +'  </td> <td> <button id="edit" data-id=" ' + task.id + '"> Edit </button> </td> <td> <button id="del" data-id=" ' + task.id + '"> Delete </button> </td></tr>');
-
-    changeBackgroundColor(x, i);
-  }
-}
-
-function changeBackgroundColor(x, i) {
-  if (x === 'blue') {
-    $('#' + i).css('background-color', 'blue');
-  } else if (x === 'green') {
-    $('#' + i).css('background-color', 'green');
-  } else if (x === 'red') {
-    $('#' + i).css('background-color', 'red');
-  } else if (x === 'yellow') {
-    $('#' + i).css('background-color', 'yellow');
-  }
-}
 
 
 /*
@@ -109,4 +80,5 @@ function changeBackgroundColor(x, i) {
 --highlight overdue tasks in red
 --add a clear history button
 --interesting bug: when you click a button in filtered stage it will return to unfiltered
+--colors: 94 in client,
 */
