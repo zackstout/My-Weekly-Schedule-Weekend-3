@@ -2,8 +2,24 @@
 var editing = false;
 var editingId = 0;
 //
+var filterAll = '';
 
 function getTasks() {
+
+  var filter = $('#filterSelect option:selected');
+  if (filter.data().id !== '' && filter.data().id !== 'alpha'){
+    $.ajax({
+      url: '/tasks/' + filter.data().id,
+      type: 'GET'
+    }).done(function(response) {
+      appendTasks(response);
+      filterAll = filter.data().id;
+
+    }).fail(function(msg) {
+      console.log(msg);
+    });
+  } else {
+
 
   $.ajax({
     url: '/tasks',
@@ -15,7 +31,7 @@ function getTasks() {
   }).fail(function(msg) {
     console.log(msg);
   });
-
+}
 }
 
 function appendTasks(tasks) {
@@ -24,13 +40,13 @@ function appendTasks(tasks) {
   for (var i = 0; i < tasks.length; i++) {
     var task = tasks[i];
     var x = task.typecolor;
-    var completion = '<button id="completion" class="btn btn-success" data-id=" ' + task.id + '"> Done? </button>';
+    var completion = '<button id="completion" class="btn btn-success" data-id=" ' + task.id + '"> Done! </button>';
     // console.log(task);
     var desc = task.description;
     // console.log(desc);
 
     if(task.complete){
-      completion = '';
+      completion = '<img src="http://is2.mzstatic.com/image/thumb/Purple5/v4/0e/52/a8/0e52a81b-bbe0-69fe-9d86-a3a47d5a9c63/source/1200x630bb.jpg"/>';
     }
     if (task.description == null){
       desc = '';

@@ -4,13 +4,14 @@ var editing = false;
 
 function filterTasks() {
   var filter = $('#filterSelect option:selected');
-  // console.log(filter.text(), 'hi', filter.data().id);
+  console.log(filter.text(), 'hi', filter.data().id);
 
   $.ajax({
     url: '/tasks/' + filter.data().id,
     type: 'GET'
   }).done(function(response) {
     appendTasks(response);
+    filterAll = filter.data().id;
 
   }).fail(function(msg) {
     console.log(msg);

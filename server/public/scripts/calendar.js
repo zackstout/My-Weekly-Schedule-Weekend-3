@@ -26,7 +26,7 @@ function getTime() {
 
 //add headings and call function to update tasks in calendar:
 function updateWeek(arr) {
-  var row = $('<tr><td>' + arr[0] + '</td><td>' + arr[1] + '</td><td>' + arr[2] + '</td><td>' + arr[3] + '</td><td>' + arr[4] + '</td><td>' + arr[5] + '</td><td>' + arr[6] + '</td> </tr>');
+  var row = $('<tr><td>' + arr[0].slice(0, -5) + '</td><td>' + arr[1].slice(0, -5) + '</td><td>' + arr[2].slice(0, -5) + '</td><td>' + arr[3].slice(0, -5) + '</td><td>' + arr[4].slice(0, -5) + '</td><td>' + arr[5].slice(0, -5) + '</td><td>' + arr[6].slice(0, -5) + '</td> </tr>');
 
   if (count === 0) {
   $('#weekhead').append(row);
@@ -37,7 +37,7 @@ function updateWeek(arr) {
 
 //grab our tasks for the week from the DB:
 function updateTasks(week) {
-  console.log(week);
+  // console.log(week);
   $('.day').empty();
 
   $.ajax({
