@@ -3,10 +3,6 @@ $(document).ready(f1);
 
 console.log('js');
 
-
-var editing = false;
-var editingId = 0;
-
 function f1() {
   console.log('jq');
   $('#due').datepicker();

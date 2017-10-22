@@ -61,7 +61,7 @@ for (var i = 0; i < response.length; i++) {
       var k = j+1;
       $('#day' + k).append('<li id="cal'+color+i+'">' + response[i].name + '</li>');
 
-      console.log(color);
+      // console.log(color);
 
 //rather clumsy way of setting background colors of tasks in calendar:
       if (color == 'blue'){

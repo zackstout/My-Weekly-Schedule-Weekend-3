@@ -1,7 +1,10 @@
 
+var editingId = 0;
+var editing = false;
+
 function filterTasks() {
   var filter = $('#filterSelect option:selected');
-  console.log(filter.text(), 'hi', filter.data().id);
+  // console.log(filter.text(), 'hi', filter.data().id);
 
   $.ajax({
     url: '/tasks/' + filter.data().id,
@@ -16,13 +19,13 @@ function filterTasks() {
 
 function deleteTask() {
   var taskId = $(this).data("id");
-  console.log("deleted task ...",  $(this).data("id"));
+  // console.log("deleted task ...",  $(this).data("id"));
   if (confirm("Are you sure???")) {
     $.ajax ({
       type: 'DELETE',
       url: '/tasks/' + taskId,
     }).done(function(response){
-      console.log(response);
+      // console.log(response);
       $(this).parent().parent().remove();
       getTasks();
     }).fail(function(error){
@@ -35,13 +38,13 @@ function deleteTask() {
 
 function completeTask() {
   var taskId = $(this).data("id");
-  console.log('completing task..', taskId);
-  // $(this).remove();
+  // console.log('completing task..', taskId);
+
   $.ajax ({
     type: "PUT",
     url: '/tasks/'+ taskId,
   }).done(function(response){
-    console.log(response);
+    // console.log(response);
     getTasks();
   });
   getWeek();
@@ -51,10 +54,12 @@ function completeTask() {
 function editTask() {
   editing = true;
   editingId = $(this).data('id');
+  console.log(editingId);
   $('#sub').text('Editing task!');
-  var existingData = $(this).closest('tr').data().task; // data we set when appending
-  $('#name').val(existingData.name);
-  $('#desc').val(existingData.description);
+  var name = $(this).closest('tr').data().name; // data we set when appending
+  var desc = $(this).closest('tr').data().desc;
+  $('#name').val(name);
+  $('#desc').val(desc);
 
   $('.tab-link').removeClass('current');
   $('.tab-content').removeClass('current');

@@ -26,7 +26,7 @@ function addType() {
 
 //a pair of functions that store and retrieve user's types preferences from DB:
 function storeTypes(object) {
-  console.log(object);
+  // console.log(object);
   $.ajax({
     url: '/tasks/types',
     type: 'POST',
@@ -88,13 +88,13 @@ function updateKeys(x) {
 //updates the drop-down selector to reflect chosen types:
 function updateOptions(object) {
   delete object.alpha;
-  console.log(object);
+  // console.log(object);
 
   var $el = $("#typeSelect");
 
   $el.empty();
   $.each(object, function(key,value) {
-    console.log("value", value, "key", key);
+    // console.log("value", value, "key", key);
     if (value != '') {
       $el.append($("<option></option>")
       .data("id", key)
@@ -112,7 +112,7 @@ function updateFilter(object) {
   var $el2 = $("#filterSelect");
   $el2.empty();
   $.each(object, function(key,value) {
-    console.log(key, value);
+    // console.log(key, value);
     $el2.append($("<option></option>")
     .data("id", key)
     .attr("value", value).text(value));

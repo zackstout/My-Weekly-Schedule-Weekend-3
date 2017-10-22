@@ -24,13 +24,18 @@ function appendTasks(tasks) {
     var task = tasks[i];
     var x = task.typecolor;
     var completion = '<button id="completion" data-id=" ' + task.id + '"> Done? </button>';
+    console.log(task);
 
     if(task.complete){
       completion = '';
     }
 
 //somehow adding data to tr screwed up color representation
-    $('#viewTasks').append('<tr id="' + i + '" data-task="' +task+'"><td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + task.description + '</td> <td>' + task.due + '</td>  <td> '+ completion +'  </td> <td> <button id="edit" data-id=" ' + task.id + '"> Edit </button> </td> <td> <button id="del" data-id=" ' + task.id + '"> Delete </button> </td></tr>');
+    $('#viewTasks').append('<tr id="' + i + '" data-name="' +task.name+'" data-desc=" ' + task.description + '"><td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + task.description + '</td> <td>' + task.due + '</td>  <td> '+ completion +'  </td> <td> <button id="edit" data-id=" ' + task.id + '"> Edit </button> </td> <td> <button id="del" data-id=" ' + task.id + '"> Delete </button> </td></tr>');
+
+    var z = $('#'+i).data().name;
+
+    console.log(z);
 
     changeBackgroundColor(x, i);
   }
