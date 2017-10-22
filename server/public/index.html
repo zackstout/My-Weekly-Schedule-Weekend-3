@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="vendors/jquery.js" charset="utf-8"></script>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">-->
 
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="styles/style.css">
@@ -31,7 +31,8 @@
       <li class="tab-link" data-tab="tab-3">Calendar</li>
       <li class="tab-link" data-tab="tab-4">Add Types</li>
     </ul>
-    <form>
+
+  <!--  <form>
     <div id="tab-1" class="tab-content current">
       <h2 id="sub">Add a new task!</h2>
       <div class="form-group">
@@ -58,7 +59,24 @@
     </div>
 
       <button type="submit" class="btn btn-primary" id="submit">Submit!</button>
-    </form>
+    </form>-->
+
+    <div id="tab-1" class="tab-content current">
+      <h2 id="sub">Add a new task!</h2>
+      Task: <input type="text" id="task" /></br>
+      Type: <select id="typeSelect">
+          <option value="1" data-id="blue" id="option1">academics</option>
+          <option value="2" data-id="green" id="option2">economic</option>
+          <option value="3" data-id="red" id="option3">chores</option>
+          <option value="4" data-id="yellow" id="option4">self-care</option>
+        </select>
+        <button id="addTypes">Add new types!</button></br>
+        Description: <input type="text" id="desc" /></br>
+        Due: <input id="due" /> </br>
+        <button id = "submit">Submit!!!</button>
+
+
+
 
       <div id="typeDiv">
         <table>
