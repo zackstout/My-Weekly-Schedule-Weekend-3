@@ -4,7 +4,7 @@ var types = {
 };
 
 function openAddType() {
-  $('#typeDiv').slideDown('fast');
+  $('#typeDiv').slideDown(800);
   $('#blue').focus();
 }
 

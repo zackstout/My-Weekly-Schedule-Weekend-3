@@ -28,6 +28,10 @@ ul.tabs{
 			display: inherit;
 		}
 
+		#tab-01:hover, #tab-02:hover, #tab-03:hover {
+			background-color: powderBlue;
+		}
+
 
 
     #typeDiv, #posted{
