@@ -46,7 +46,6 @@ function updateTasks(week) {
   }).done(function(response) {
     // console.log(response);
     updateCalendar(response, week);
-
   }).fail(function(msg) {
     console.log(msg);
   });
@@ -59,16 +58,18 @@ for (var i = 0; i < response.length; i++) {
       // console.log(response[i]);
       var color = response[i].typecolor;
       var k = j+1;
-      $('#day' + k).append('<li id="cal'+color+'">' + response[i].name + '</li>');
+      $('#day' + k).append('<li id="cal'+color+i+'">' + response[i].name + '</li>');
+
+      console.log(color);
 
       if (color == 'blue'){
-        $('#cal'+color).css('background-color', 'blue');
+        $('#cal'+color+i).css('background-color', 'blue');
       } else if (color == 'green'){
-        $('#cal'+color).css('background-color', 'green');
+        $('#cal'+color+i).css('background-color', 'green');
       } else if (color == 'red'){
-        $('#cal'+color).css('background-color', 'red');
+        $('#cal'+color+i).css('background-color', 'red');
       } else if (color == 'yellow'){
-        $('#cal'+color).css('background-color', 'yellow');
+        $('#cal'+color+i).css('background-color', 'yellow');
       }
     }
   }
