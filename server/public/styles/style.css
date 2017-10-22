@@ -32,13 +32,24 @@ ul.tabs{
 
     #typeDiv, #posted{
       display: none;
+
     }
 
+		#posted{
+			background-color: rgba(51, 153, 51, 0.5);
+			border-radius: 5px;
+			height: 100px;
+			width: 170px;
+			padding-top: 10px;
+		}
+
 		#yay{
-			height:200px;
-			width: 350px;
-			font-size: 34px;
+			font-size: 25px;
 			text-transform: uppercase;
+			margin: 4px;
+			font-family: Garamond;
+			color: white;
+			text-align: center;
 
 		}
 
@@ -76,6 +87,8 @@ ul.tabs{
 		#greenbox, #greenbox2, #greenbox3 {
 			background-color: forestGreen;
 		}
+
+
 
 td {
 	padding: 3px;

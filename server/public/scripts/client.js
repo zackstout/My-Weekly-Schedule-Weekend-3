@@ -46,12 +46,21 @@ function subClicked() {
     complete: 'false',
     typecolor: $('#typeSelect option:selected').data().id
   };
+
+  //form validation:
   if (objectSent.name == '') {
     alert('enter a task goofball!');
     $('#task').focus();
+    return;
   }
+  if (objectSent.due == '') {
+    alert('enter a date goofball!');
+    $('#due').focus();
+    return;
+  }
+
+  //check whether editing or adding:
   if (editing) {
-      // Switch back to add new product mode
       editing = false;
       $('#sub').text('Add a new task!');
       updateTask(objectSent);
@@ -73,6 +82,8 @@ function postTask(task) {
   });
 
   $('#posted').show().delay(300).fadeOut(1800);
+  $('.formIn').val('');
+  $('#task').focus();
   getWeek();
 }
 

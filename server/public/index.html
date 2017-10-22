@@ -14,7 +14,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
-<script src="scripts/core.js" charset="utf-8"></script>
+  <script src="scripts/core.js" charset="utf-8"></script>
   <script src="scripts/calendar.js" charset="utf-8"></script>
   <script src="scripts/types.js" charset="utf-8"></script>
   <script src="scripts/extra-buttons.js" charset="utf-8"></script>
@@ -31,119 +31,120 @@
       <li class="tab-link" data-tab="tab-3">My Week</li>
     </ul>
 
-  <!--  <form>
+    <!--  <form>
     <div id="tab-1" class="tab-content current">
-      <h2 id="sub">Add a new task!</h2>
-      <div class="form-group">
-        <label for="task"> Task </label>
-        <input type="text" class="form-control" id="task"/>
-      </div>
-      <div class = "form-group">
-        <label for "typeSelect"> Type </label>
-    <select id="typeSelect">
+    <h2 id="sub">Add a new task!</h2>
+    <div class="form-group">
+    <label for="task"> Task </label>
+    <input type="text" class="form-control" id="task"/>
+  </div>
+  <div class = "form-group">
+  <label for "typeSelect"> Type </label>
+  <select id="typeSelect">
+  <option value="1" data-id="blue" id="option1">academics</option>
+  <option value="2" data-id="green" id="option2">economic</option>
+  <option value="3" data-id="red" id="option3">chores</option>
+  <option value="4" data-id="yellow" id="option4">self-care</option>
+</select>
+<button id="addTypes">Add new types!</button>
+</div>
+<div class="form-group">
+<label for="desc"> Description </label>
+<input type="text" class="form-control" id="desc"/>
+</div>
+<div class="form-group">
+<label for="due"> Task </label>
+<input class="form-control" id="due"/>
+</div>
+
+<button type="submit" class="btn btn-primary" id="submit">Submit!</button>
+</form>-->
+
+
+
+<div id="tab-1" class="tab-content current">
+  <h2 id="sub">Add a new task!</h2>
+  <div class="row">
+    <div class="col-md-5">
+      <div id="form">
+        <!-- <form>
+        <fieldset> -->
+        <table class="table table-striped">
+          <thead class="thead-inverse">
+          </thead>
+          <tbody>
+            <tr><td>Task: </td><td><input type="text" id="task" class="formIn"/></td><td></td></tr>
+            <tr><td>Type: </td><td><select id="typeSelect">
+              <option value="1" data-id="blue" id="option1">academics</option>
+              <option value="2" data-id="green" id="option2">economic</option>
+              <option value="3" data-id="red" id="option3">chores</option>
+              <option value="4" data-id="yellow" id="option4">self-care</option>
+            </select></td><td><button id="addTypes" class="btn btn-info">Edit types!</button></td></tr>
+            <tr><td>Description: </td><td><input type="text" id="desc" class="formIn"/></td><td></td></tr>
+            <tr><td>Due: </td><td><input id="due" class="formIn"/></td><td></td></tr>
+          </tbody>
+        </table>
+        <button id="submit" class="btn btn-primary">Submit/!!?!?</button>
+
+
+        <!--
+        <legend>New Task</legend>
+        Task: <input type="text" id="task" /></br>
+        Type: <select id="typeSelect">
         <option value="1" data-id="blue" id="option1">academics</option>
         <option value="2" data-id="green" id="option2">economic</option>
         <option value="3" data-id="red" id="option3">chores</option>
         <option value="4" data-id="yellow" id="option4">self-care</option>
       </select>
-      <button id="addTypes">Add new types!</button>
-    </div>
-    <div class="form-group">
-      <label for="desc"> Description </label>
-      <input type="text" class="form-control" id="desc"/>
-    </div>
-    <div class="form-group">
-      <label for="due"> Task </label>
-      <input class="form-control" id="due"/>
-    </div>
+      <button id="addTypes">Add new types!</button></br>
+      Description: <input type="text" id="desc" /></br>
+      Due: <input id="due" /> </br>
+      <button id = "submit">Submit!!!</button>
 
-      <button type="submit" class="btn btn-primary" id="submit">Submit!</button>
-    </form>-->
-
-
-
-    <div id="tab-1" class="tab-content current">
-      <h2 id="sub">Add a new task!</h2>
-      <div class="row">
-        <div class="col-md-5">
-      <div id="form">
-        <!-- <form>
-          <fieldset> -->
-          <table class="table table-striped">
-            <thead class="thead-inverse">
-            </thead>
-            <tbody>
-              <tr><td>Task: </td><td><input type="text" id="task" /></td><td></td></tr>
-              <tr><td>Type: </td><td><select id="typeSelect">
-                  <option value="1" data-id="blue" id="option1">academics</option>
-                  <option value="2" data-id="green" id="option2">economic</option>
-                  <option value="3" data-id="red" id="option3">chores</option>
-                  <option value="4" data-id="yellow" id="option4">self-care</option>
-                </select></td><td><button id="addTypes" class="btn btn-info">Add new types!</button></td></tr>
-              <tr><td>Description: </td><td><input type="text" id="task" /></td><td></td></tr>
-              <tr><td>Due: </td><td><input id="due" /></td><td></td></tr>
-            </tbody>
-          </table>
-              <button id="submit" class="btn btn-primary">Submit/!!?!?</button>
-
-
-<!--
-            <legend>New Task</legend>
-      Task: <input type="text" id="task" /></br>
-      Type: <select id="typeSelect">
-          <option value="1" data-id="blue" id="option1">academics</option>
-          <option value="2" data-id="green" id="option2">economic</option>
-          <option value="3" data-id="red" id="option3">chores</option>
-          <option value="4" data-id="yellow" id="option4">self-care</option>
-        </select>
-        <button id="addTypes">Add new types!</button></br>
-        Description: <input type="text" id="desc" /></br>
-        Due: <input id="due" /> </br>
-        <button id = "submit">Submit!!!</button>
-
-      -->
+    -->
     <!--  </fieldset>
-    </form> -->
-      </div>
+  </form> -->
+</div>
 
 </div>
 
-      <div class="col-md-2">
-      <div id="posted">
-        <div id="yay">
-          Successfully posted new task!
-        </div>
-      </div>
+<div class="col-md-2">
+  <div id="posted">
+    <div id="yay">
+      Posted new task!
     </div>
-      <div id="typeDiv" class="col-md-5">
-        <table class="table table-striped">
-          <thead class="thead-inverse">
-          <tr><th></th><th>Type name</th></tr>
-        </thead>
-          <tr>
-            <td><div id="bluebox3" class="box"></div></td>
-          <td><input type="text" id="blue" data-id="blue"/></td>
-        </tr>
-          <tr>
-            <td><div id="greenbox3" class="box"></div></td>
-            <td><input type="text" id="green" data-id="green"/></td></tr>
-          <tr>
-            <td><div id="redbox3" class="box"></div></td>
-            <td><input type="text" id="red" data-id="red"/></td></tr>
-          <tr>
-            <td><div id="yellowbox3" class="box"></div></td>
-            <td><input type="text" id="yellow" data-id="yellow"/></td></tr>
+  </div>
+</div>
+
+<div id="typeDiv" class="col-md-4">
+  <table class="table table-striped">
+    <thead class="thead-inverse">
+      <tr><th></th><th>Type name</th></tr>
+    </thead>
+    <tr>
+      <td><div id="bluebox3" class="box"></div></td>
+      <td><input type="text" id="blue" data-id="blue"/></td>
+    </tr>
+    <tr>
+      <td><div id="greenbox3" class="box"></div></td>
+      <td><input type="text" id="green" data-id="green"/></td></tr>
+      <tr>
+        <td><div id="redbox3" class="box"></div></td>
+        <td><input type="text" id="red" data-id="red"/></td></tr>
+        <tr>
+          <td><div id="yellowbox3" class="box"></div></td>
+          <td><input type="text" id="yellow" data-id="yellow"/></td></tr>
         </table>
         <button id="update" class="btn btn-primary">Update types!</button>
       </div>
 
-</div>
+    </div>
   </div>
 
 
 
-    <div id="tab-2" class="tab-content">
-      <div class="row">
+  <div id="tab-2" class="tab-content">
+    <div class="row">
       <div id='filter'>
         Filter by:
         <select id="filterSelect">
@@ -157,8 +158,8 @@
       </div>
     </div>
 
-<div class="row">
-  <div class="col-md">
+    <div class="row">
+      <div class="col-md">
         <div id="key1">
           <div id="bluebox" class="box">
           </div>
@@ -192,57 +193,57 @@
         </div>
       </div>
     </div>
-      <div class="row">
-        <table class="table table-striped">
-          <thead class="thead-inverse">
-            <tr>
-              <th>Task</th>
-              <th>Type</th>
-              <th>Description</th>
-              <th>Due Date</th>
-              <th>Completed?</th>
-              <th>Edit?</th>
-              <th>Delete?</th>
-            </tr>
-          </thead>
-          <tbody id ="viewTasks">
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-
-
-
-    <div id="tab-3" class="tab-content">
-<div class="row">
-            <div> Today's date:
-              <div id="today">
-              </div>
-            </div>
-          </div>
-            <div class="row">
-            <div class="col-md-12">
-      <table id="calendar" class="table table-striped">
-        <thead id="weekhead" class="thead-inverse">
-
-        </thead>
-        <tbody id="week">
+    <div class="row">
+      <table class="table table-striped">
+        <thead class="thead-inverse">
           <tr>
-            <td><ul id="day1" class="day"></ul></td>
-            <td><ul id="day2" class="day"></ul></td>
-            <td><ul id="day3" class="day"></ul></td>
-            <td><ul id="day4" class="day"></ul></td>
-            <td><ul id="day5" class="day"></ul></td>
-            <td><ul id="day6" class="day"></ul></td>
-            <td><ul id="day7" class="day"></ul></td>
+            <th>Task</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Completed?</th>
+            <th>Edit?</th>
+            <th>Delete?</th>
           </tr>
+        </thead>
+        <tbody id ="viewTasks">
         </tbody>
-
       </table>
     </div>
   </div>
-  <div class="row">
+
+
+
+
+  <div id="tab-3" class="tab-content">
+    <div class="row">
+      <div> Today's date:
+        <div id="today">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <table id="calendar" class="table table-striped">
+          <thead id="weekhead" class="thead-inverse">
+
+          </thead>
+          <tbody id="week">
+            <tr>
+              <td><ul id="day1" class="day"></ul></td>
+              <td><ul id="day2" class="day"></ul></td>
+              <td><ul id="day3" class="day"></ul></td>
+              <td><ul id="day4" class="day"></ul></td>
+              <td><ul id="day5" class="day"></ul></td>
+              <td><ul id="day6" class="day"></ul></td>
+              <td><ul id="day7" class="day"></ul></td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+    <div class="row">
       <div id="key2">
         <div id="bluebox2" class="box">
         </div>
@@ -277,7 +278,7 @@
     </div>
   </div>
 
-  </div>
+</div>
 
 
 </body>

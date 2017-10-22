@@ -10,6 +10,7 @@ function getTasks() {
     type: 'GET'
   }).done(function(response) {
     appendTasks(response);
+    // console.log(response);
 
   }).fail(function(msg) {
     console.log(msg);
@@ -25,13 +26,17 @@ function appendTasks(tasks) {
     var x = task.typecolor;
     var completion = '<button id="completion" class="btn btn-success" data-id=" ' + task.id + '"> Done? </button>';
     // console.log(task);
+    var desc = task.description;
+    // console.log(desc);
 
     if(task.complete){
       completion = '';
     }
+    if (task.description == null){
+      desc = '';
+    }
 
-//somehow adding data to tr screwed up color representation
-    $('#viewTasks').append('<tr id="' + i + '" data-description="' +task.description+'" data-name="' + task.name + '" ><td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + task.description + '</td> <td>' + task.due + '</td>  <td> '+ completion +'  </td> <td> <button id="edit" class="btn btn-warning" data-id=" ' + task.id + '"> Edit </button> </td> <td> <button id="del" class="btn btn-danger" data-id=" ' + task.id + '"> Delete </button> </td></tr>');
+    $('#viewTasks').append('<tr id="' + i + '" data-description="' +task.description+'" data-name="' + task.name + '" ><td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + desc + '</td> <td>' + task.due + '</td>  <td> '+ completion +'  </td> <td> <button id="edit" class="btn btn-warning" data-id=" ' + task.id + '"> Edit </button> </td> <td> <button id="del" class="btn btn-danger" data-id=" ' + task.id + '"> Delete </button> </td></tr>');
 
     var z = $('#'+i).data().name;
 
