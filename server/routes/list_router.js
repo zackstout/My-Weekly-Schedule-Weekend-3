@@ -53,7 +53,7 @@ router.get('/', function(req, res){
       res.sendStatus(500);
     } else {
       //we connected to DB
-      var queryText = 'SELECT * FROM "taskstodo";';
+      var queryText = 'SELECT * FROM "taskstodo" ORDER BY "complete", "due";';
       db.query(queryText, function(errorMakingQuery, result){
         done();
         if(errorMakingQuery) {
@@ -76,10 +76,10 @@ router.get('/:id', function(req, res){
       res.sendStatus(500);
     } else {
       //we connected to DB
-      var queryText = 'SELECT * FROM "taskstodo" WHERE "typecolor"=$1;';
+      var queryText = 'SELECT * FROM "taskstodo" WHERE "typecolor"=$1 ORDER BY "complete", "due";';
 
       if (color == '0' || color == 'alpha') {
-        queryText = 'SELECT * FROM "taskstodo" WHERE ("typecolor"=$1 OR "typecolor" <> $1);';
+        queryText = 'SELECT * FROM "taskstodo" WHERE ("typecolor"=$1 OR "typecolor" <> $1) ORDER BY "complete", "due";';
       }
       db.query(queryText, [color], function(errorMakingQuery, result){
         done();

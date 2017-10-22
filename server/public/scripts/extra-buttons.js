@@ -29,6 +29,7 @@ function deleteTask() {
     }).fail(function(error){
       console.log('Sad tasks :(');
     });
+    getWeek();
   }
   return false;
 }
@@ -44,6 +45,7 @@ function completeTask() {
     console.log(response);
     getTasks();
   });
+  getWeek();
 }
 
 function editTask() {

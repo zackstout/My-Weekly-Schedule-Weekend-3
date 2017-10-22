@@ -52,6 +52,9 @@ function postTask(task) {
   }).fail(function(msg){
     console.log(msg);
   });
+
+  $('#posted').show().delay(300).fadeOut(1800);
+  getWeek();
 }
 
 function getTasks() {
@@ -68,7 +71,6 @@ function getTasks() {
 
 }
 
-
 function appendTasks(tasks) {
   $('#viewTasks').empty();
 
@@ -82,7 +84,7 @@ function appendTasks(tasks) {
       completion = '';
     }
 
-    $('#viewTasks').append('<tr id=' + i + '><td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + task.description + '</td> <td>' + task.due + '</td>  <td> '+ completion +'  </td> <td> <button id="edit" data-id=" ' + task.id + '"> Edit </button> </td> <td> <button id="del" data-id=" ' + task.id + '"> Delete </button> </td><td>' + x + '</td></tr>');
+    $('#viewTasks').append('<tr id=' + i + '><td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + task.description + '</td> <td>' + task.due + '</td>  <td> '+ completion +'  </td> <td> <button id="edit" data-id=" ' + task.id + '"> Edit </button> </td> <td> <button id="del" data-id=" ' + task.id + '"> Delete </button> </td></tr>');
     //
     // if (task.complete) {
     //   console.log('hi', '#box'+i);
@@ -110,5 +112,8 @@ function changeBackgroundColor(x, i) {
 /*
 --presumably want new types to be stored and remembered
 --want animation upon completion of task, prob append an image?
---
+--form validation
+--animation upon submitting a task
+--highlight overdue tasks in red
+--add a clear history button
 */

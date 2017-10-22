@@ -30,30 +30,23 @@ ul.tabs{
 
 
 
-    #typeDiv{
+    #typeDiv, #posted{
       display: none;
     }
 
+		#yay{
+			height:200px;
+			width: 350px;
+			font-size: 34px;
+			text-transform: uppercase;
 
-tr.colorblue > td{
-  background-color: blue;
-  color: blue
-}
+		}
 
-.colorgreen > td{
-  background-color: green;
-}
-
-.colorred > td{
-  background-color: red;
-  color: red;
-  font-family: Garamond;
-}
-
-.coloryellow > td{
-  background-color: yellow;
+td {
+	padding: 3px;
+	font-size: 14px;
 }
 
 tr  {
-  background-color: orange;
+  background-color: white;
 }
