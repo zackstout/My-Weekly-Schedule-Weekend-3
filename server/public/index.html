@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="vendors/jquery.js" charset="utf-8"></script>
 
-  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">-->
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
 
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="styles/style.css">
@@ -63,6 +63,12 @@
 
     <div id="tab-1" class="tab-content current">
       <h2 id="sub">Add a new task!</h2>
+      <div class="row">
+        <div class="col-md-4">
+      <div id="form">
+        <!-- <form>
+          <fieldset> -->
+            <legend>New Task</legend>
       Task: <input type="text" id="task" /></br>
       Type: <select id="typeSelect">
           <option value="1" data-id="blue" id="option1">academics</option>
@@ -74,11 +80,14 @@
         Description: <input type="text" id="desc" /></br>
         Due: <input id="due" /> </br>
         <button id = "submit">Submit!!!</button>
+    <!--  </fieldset>
+    </form> -->
+      </div>
+</div>
 
 
 
-
-      <div id="typeDiv">
+      <div id="typeDiv" class="col-md-3">
         <table>
           <tr><td></td><td>Type name</td></tr>
           <tr><td>blue</td><td><input type="text" id="blue" data-id="blue"/></td></tr>
@@ -93,12 +102,17 @@
         <div id="today">
         </div>
       </div>
+
+      <div class="col-md">
       <div id="posted">
         <div id="yay">
           Successfully posted new task!
         </div>
       </div>
     </div>
+
+    </div>
+  </div>
 
     <div id="tab-2" class="tab-content">
       <div id='filter'>
