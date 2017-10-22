@@ -58,6 +58,10 @@ ul.tabs{
 			float: left;
 		}
 
+		.row {
+			margin-bottom: 20px;
+		}
+
 
 
 		#bluebox, #bluebox2 {
