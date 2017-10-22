@@ -20,6 +20,7 @@ function f1() {
   getTime();
   getTypes();
   updateFilter(types);
+  $('#task').focus();
 }
 
 
@@ -45,7 +46,11 @@ function subClicked() {
     complete: 'false',
     typecolor: $('#typeSelect option:selected').data().id
   };
-  if(editing) {
+  if (objectSent.name == '') {
+    alert('enter a task goofball!');
+    $('#task').focus();
+  }
+  if (editing) {
       // Switch back to add new product mode
       editing = false;
       $('#sub').text('Add a new task!');
