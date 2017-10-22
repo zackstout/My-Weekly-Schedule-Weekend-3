@@ -64,22 +64,23 @@ ul.tabs{
 
 
 
-		#bluebox, #bluebox2 {
+		#bluebox, #bluebox2, #bluebox3 {
 			background-color: blue;
 		}
-		#redbox, #redbox2 {
+		#redbox, #redbox2, #redbox3 {
 			background-color: crimson;
 		}
-		#yellowbox, #yellowbox2 {
+		#yellowbox, #yellowbox2, #yellowbox3 {
 			background-color: Yellow;
 		}
-		#greenbox, #greenbox2 {
+		#greenbox, #greenbox2, #greenbox3 {
 			background-color: forestGreen;
 		}
 
 td {
 	padding: 3px;
 	font-size: 14px;
+	text-align: center;
 }
 
 tr  {
