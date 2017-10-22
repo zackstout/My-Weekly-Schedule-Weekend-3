@@ -49,6 +49,11 @@ ul.tabs{
 			margin-bottom: 8px;
 		}
 
+		.type {
+			float: left;
+			margin: 5px;
+		}
+
 		#bluebox, #bluebox2 {
 			background-color: blue;
 		}
