@@ -30,6 +30,7 @@ function changeTabs() {
   $('#' + tab_id).addClass('current');
 }
 
+
 function subClicked() {
   var objectSent = {
     name: $('#task').val(),
@@ -39,20 +40,14 @@ function subClicked() {
     complete: 'false',
     typecolor: $('#typeSelect option:selected').data().id
   };
-  postTask(objectSent);
   if(editing) {
       // Switch back to add new product mode
       editing = false;
       $('#sub').text('Add a new task!');
       updateTask(objectSent);
     } else {
-      addTask(objectSent);
+      postTask(objectSent);
     }
-}
-
-function addTask(task) {
-
-  // console.log(objectSent);
 }
 
 function postTask(task) {

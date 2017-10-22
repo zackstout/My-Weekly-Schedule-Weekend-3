@@ -47,6 +47,7 @@ function completeTask() {
   getWeek();
 }
 
+//these two functions deal with editing:
 function editTask() {
   editing = true;
   editingId = $(this).data('id');
@@ -54,6 +55,11 @@ function editTask() {
   var existingData = $(this).closest('tr').data().task; // data we set when appending
   $('#name').val(existingData.name);
   $('#desc').val(existingData.description);
+
+  $('.tab-link').removeClass('current');
+  $('.tab-content').removeClass('current');
+  $('#tab-01').addClass('current');
+  $('#tab-1').addClass('current');
 }
 
 function updateTask(task) {
