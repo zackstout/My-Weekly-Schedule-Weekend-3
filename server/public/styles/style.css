@@ -54,6 +54,10 @@ ul.tabs{
 			margin: 5px;
 		}
 
+		.equality {
+			float: left;
+		}
+
 
 
 		#bluebox, #bluebox2 {

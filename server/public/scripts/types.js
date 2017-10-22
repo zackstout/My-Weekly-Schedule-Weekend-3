@@ -4,7 +4,8 @@ var types = {
 };
 
 function openAddType() {
-  $('#typeDiv').show();
+  $('#typeDiv').slideDown('fast');
+  $('#blue').focus();
 }
 
 //core function called on clicking submit button in types form:
@@ -21,7 +22,7 @@ function addType() {
   updateOptions(newOptions);
   storeTypes(newOptions);
   updateKeys(newOptions);
-  $('#typeDiv').hide();
+  $('#typeDiv').slideUp('fast');
 }
 
 //a pair of functions that store and retrieve user's types preferences from DB:
