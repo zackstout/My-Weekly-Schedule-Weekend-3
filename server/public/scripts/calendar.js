@@ -1,4 +1,8 @@
 
+//counter to ensure we only append heading once:
+var count = 0;
+
+//how i did it at first, should probably be replaced by moment logic:
 function getTime() {
     var now = new Date();
     var day = ("0" + now.getDate()).slice(-2);
@@ -8,6 +12,7 @@ function getTime() {
     getWeek();
   }
 
+//lets us pull down moment functionality from the server:
   function getWeek() {
     $.ajax({
       url: '/tasks/calendar',
@@ -19,8 +24,7 @@ function getTime() {
     });
   }
 
-var count = 0;
-
+//add headings and call function to update tasks in calendar:
 function updateWeek(arr) {
   var row = $('<tr><td>' + arr[0] + '</td><td>' + arr[1] + '</td><td>' + arr[2] + '</td><td>' + arr[3] + '</td><td>' + arr[4] + '</td><td>' + arr[5] + '</td><td>' + arr[6] + '</td> </tr>');
 
@@ -29,9 +33,9 @@ function updateWeek(arr) {
 }
   updateTasks(arr);
   count++;
-
 }
 
+//grab our tasks for the week from the DB:
 function updateTasks(week) {
   console.log(week);
   $('.day').empty();
@@ -47,6 +51,7 @@ function updateTasks(week) {
   });
 }
 
+//and finally, update the calendar:
 function updateCalendar(response, week) {
 for (var i = 0; i < response.length; i++) {
   for (var j = 0; j < week.length; j++) {
@@ -58,6 +63,7 @@ for (var i = 0; i < response.length; i++) {
 
       console.log(color);
 
+//rather clumsy way of setting background colors of tasks in calendar:
       if (color == 'blue'){
         $('#cal'+color+i).css('background-color', 'blue');
       } else if (color == 'green'){

@@ -104,10 +104,9 @@ function changeBackgroundColor(x, i) {
 
 
 /*
---presumably want new types to be stored and remembered
 --want animation upon completion of task, prob append an image?
 --form validation
---animation upon submitting a task
 --highlight overdue tasks in red
 --add a clear history button
+--interesting bug: when you click a button in filtered stage it will return to unfiltered
 */

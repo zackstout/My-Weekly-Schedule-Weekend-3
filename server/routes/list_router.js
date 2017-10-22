@@ -19,12 +19,36 @@ var pool = new pg.Pool(config);
 var week = thisWeek();
 var endOfWeek = week[6];
 var startOfWeek = week[0];
-// console.log(endOfWeek);
 
+
+//CALENDAR ROUTES:
 router.get('/calendar', function(req, res){
   res.send(week);
 }); // END GET ROUTE
 
+router.get('/week', function(req, res) {
+  pool.connect(function(errorConnectingToDb, db, done) {
+    if(errorConnectingToDb) {
+      console.log('Error connecting', errorConnectingToDb);
+      res.sendStatus(500);
+    } else {
+      //we connected to DB
+      var queryText = 'SELECT * FROM "taskstodo" WHERE ("due" >= $1 AND "due" <= $2 AND "complete"=false);';
+      db.query(queryText, [startOfWeek, endOfWeek], function(errorMakingQuery, result){
+        done();
+        if(errorMakingQuery) {
+          console.log('Error making query', errorMakingQuery);
+          res.sendStatus(500);
+        } else {
+          res.send(result.rows);
+        }
+      });
+    }
+  });
+}); //END GET ROUTE
+
+
+//TYPES ROUTES:
 router.post('/types', function(req, res){
   var x = req.body;
   // console.log(x);
@@ -70,27 +94,8 @@ router.get('/types', function(req, res) {
   });
 }); //END GET ROUTE
 
-router.get('/week', function(req, res) {
-  pool.connect(function(errorConnectingToDb, db, done) {
-    if(errorConnectingToDb) {
-      console.log('Error connecting', errorConnectingToDb);
-      res.sendStatus(500);
-    } else {
-      //we connected to DB
-      var queryText = 'SELECT * FROM "taskstodo" WHERE ("due" >= $1 AND "due" <= $2 AND "complete"=false);';
-      db.query(queryText, [startOfWeek, endOfWeek], function(errorMakingQuery, result){
-        done();
-        if(errorMakingQuery) {
-          console.log('Error making query', errorMakingQuery);
-          res.sendStatus(500);
-        } else {
-          res.send(result.rows);
-        }
-      });
-    }
-  });
-}); //END GET ROUTE
 
+//MAIN ROUTES:
 router.get('/', function(req, res){
   pool.connect(function(errorConnectingToDb, db, done) {
     if(errorConnectingToDb) {
@@ -162,6 +167,8 @@ router.post('/', function(req, res){
   });
 }); //END POST ROUTE
 
+
+//EXTRA BUTTONS ROUTES:
 router.delete('/:id', function(req, res){
   var taskId = req.params.id;
   console.log(taskId);

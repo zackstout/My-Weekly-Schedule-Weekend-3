@@ -3,6 +3,7 @@ function openAddType() {
   $('#typeDiv').show();
 }
 
+//core function called on clicking submit button in types form:
 function addType() {
   var newOptions = {
     alpha: 'Show all',
@@ -18,6 +19,7 @@ function addType() {
   $('#typeDiv').hide();
 }
 
+//a pair of functions that store and retrieve user's types preferences from DB:
 function storeTypes(object) {
   console.log(object);
   $.ajax({
@@ -44,6 +46,10 @@ function getTypes() {
       red: x.red,
       yellow: x.yellow
     };
+    $('#blue').val(x.blue);
+    $('#green').val(x.green);
+    $('#red').val(x.red);
+    $('#yellow').val(x.yellow);
     console.log('we got', response, y);
     updateOptions(y);
 
@@ -52,6 +58,7 @@ function getTypes() {
   });
 }
 
+//updates the drop-down selector to reflect chosen types:
 function updateOptions(object) {
   delete object.alpha;
   console.log(object);
@@ -73,6 +80,7 @@ function updateOptions(object) {
   });
 }
 
+//updates drop-down selector in All Tasks tab:
 function updateFilter(object) {
   var $el2 = $("#filterSelect");
   $el2.empty();

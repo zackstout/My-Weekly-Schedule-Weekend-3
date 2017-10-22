@@ -14,7 +14,6 @@ function filterTasks() {
   });
 }
 
-
 function deleteTask() {
   var taskId = $(this).data("id");
   console.log("deleted task ...",  $(this).data("id"));
