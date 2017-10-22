@@ -17,6 +17,7 @@ function f1() {
   $('#filterSend').on('click', filterTasks);
   getTasks();
   getTime();
+  getTypes();
 }
 
 //from codepen
@@ -78,19 +79,12 @@ function appendTasks(tasks) {
     var task = tasks[i];
     var x = task.typecolor;
     var completion = '<button id="completion" data-id=" ' + task.id + '"> Done? </button>';
-    // var completion = '<input type=checkbox id="box'+i+'" data-id=" '+ task.id + '"/>';
 
     if(task.complete){
       completion = '';
     }
 
     $('#viewTasks').append('<tr id=' + i + '><td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + task.description + '</td> <td>' + task.due + '</td>  <td> '+ completion +'  </td> <td> <button id="edit" data-id=" ' + task.id + '"> Edit </button> </td> <td> <button id="del" data-id=" ' + task.id + '"> Delete </button> </td></tr>');
-    //
-    // if (task.complete) {
-    //   console.log('hi', '#box'+i);
-    //   $('#box'+i).prop("checked", true);
-    //
-    // }
 
     changeBackgroundColor(x, i);
   }

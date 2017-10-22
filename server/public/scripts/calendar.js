@@ -23,11 +23,7 @@ var count = 0;
 
 function updateWeek(arr) {
   var row = $('<tr><td>' + arr[0] + '</td><td>' + arr[1] + '</td><td>' + arr[2] + '</td><td>' + arr[3] + '</td><td>' + arr[4] + '</td><td>' + arr[5] + '</td><td>' + arr[6] + '</td> </tr>');
-  // console.log(arr);
-  // for (var i = 0; i < arr.length; i++) {
-  //   row.append('<td>' + arr[i] + '</td>');
-  // }
-  // console.log(row);
+
   if (count === 0) {
   $('#week').prepend(row);
 }
