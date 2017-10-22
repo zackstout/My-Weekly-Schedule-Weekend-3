@@ -1,4 +1,8 @@
 
+var types = {
+  alpha: 'Show all'
+};
+
 function openAddType() {
   $('#typeDiv').show();
 }
@@ -48,6 +52,13 @@ function getTypes() {
       yellow: x.yellow
     };
     updateKeys(x);
+    types.blue = x.blue;
+    types.green = x.green;
+    types.red = x.red;
+    types.yellow = x.yellow;
+
+    console.log(types);
+    updateFilter(types);
 
     console.log('we got', response, y);
     updateOptions(y);

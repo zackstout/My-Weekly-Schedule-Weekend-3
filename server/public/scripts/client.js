@@ -3,6 +3,10 @@ $(document).ready(f1);
 
 console.log('js');
 
+
+var editing = false;
+var editingId = 0;
+
 function f1() {
   console.log('jq');
   $('#due').datepicker();
@@ -19,7 +23,12 @@ function f1() {
   getTasks();
   getTime();
   getTypes();
+  updateFilter(types);
 }
+
+
+
+//
 
 //from codepen
 function changeTabs() {
@@ -77,3 +86,5 @@ function postTask(task) {
 --interesting bug: when you click a button in filtered stage it will return to unfiltered
 --colors: 94 in client,
 */
+
+//all of this is extra files to test:
