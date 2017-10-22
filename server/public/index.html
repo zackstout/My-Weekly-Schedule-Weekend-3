@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="vendors/jquery.js" charset="utf-8"></script>
 
-  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="styles/style.css">
@@ -29,7 +29,6 @@
       <li class="tab-link current" data-tab="tab-1" id="tab-01">New Task</li>
       <li class="tab-link" data-tab="tab-2">All Tasks</li>
       <li class="tab-link" data-tab="tab-3">Calendar</li>
-      <li class="tab-link" data-tab="tab-4">Add Types</li>
     </ul>
 
   <!--  <form>
@@ -90,8 +89,10 @@
 
 
       <div id="typeDiv" class="col-md-3">
-        <table>
-          <tr><td></td><td>Type name</td></tr>
+        <table class="table table-striped">
+          <thead class="thead-inverse">
+          <tr><th></th><th>Type name</th></tr>
+        </thead>
           <tr><td>blue</td><td><input type="text" id="blue" data-id="blue"/></td></tr>
           <tr><td>green</td><td><input type="text" id="green" data-id="green"/></td></tr>
           <tr><td>red</td><td><input type="text" id="red" data-id="red"/></td></tr>
@@ -147,8 +148,8 @@
           </div>
 
         </div>
-        <table>
-          <thead>
+        <table class="table table-striped">
+          <thead class="thead-inverse">
             <tr>
               <th>Task</th>
               <th>Type</th>
@@ -167,7 +168,7 @@
 
     <div id="tab-3" class="tab-content">
       <table>
-        <thead>
+        <thead id="weekhead" class="thead-inverse">
 
         </thead>
         <tbody id="week">
@@ -204,9 +205,6 @@
       </div>
     </div>
 
-    <div id="tab-4" class="tab-content">
-
-    </div>
   </div>
 
 

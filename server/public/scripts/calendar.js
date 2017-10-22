@@ -29,7 +29,7 @@ function updateWeek(arr) {
   var row = $('<tr><td>' + arr[0] + '</td><td>' + arr[1] + '</td><td>' + arr[2] + '</td><td>' + arr[3] + '</td><td>' + arr[4] + '</td><td>' + arr[5] + '</td><td>' + arr[6] + '</td> </tr>');
 
   if (count === 0) {
-  $('#week').prepend(row);
+  $('#weekhead').append(row);
 }
   updateTasks(arr);
   count++;

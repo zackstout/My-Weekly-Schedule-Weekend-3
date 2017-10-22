@@ -43,8 +43,10 @@ ul.tabs{
 		}
 
 		.box {
-			height:50px;
-			width:50px;
+			height:24px;
+			width:24px;
+			float: left;
+			margin-bottom: 8px;
 		}
 
 		#bluebox, #bluebox2 {
@@ -67,4 +69,9 @@ td {
 
 tr  {
   background-color: white;
+}
+
+
+table, th, td {
+    border: 1px solid black;
 }
