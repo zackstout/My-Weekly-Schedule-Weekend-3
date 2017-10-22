@@ -16,7 +16,7 @@ function addType() {
   updateFilter(newOptions);
   updateOptions(newOptions);
   storeTypes(newOptions);
-  // getTypes();
+  updateKeys(newOptions);
   $('#typeDiv').hide();
 }
 
