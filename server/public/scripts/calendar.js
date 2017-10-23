@@ -2,13 +2,8 @@
 //counter to ensure we only append heading once:
 var count = 0;
 
-//how i did it at first, should probably be replaced by moment logic:
+//how i did it at first, should probably be replaced by moment logic --- aaaaand replaced:
 function getTime() {
-    var now = new Date();
-    var day = ("0" + now.getDate()).slice(-2);
-    var month = ("0" + (now.getMonth() + 1)).slice(-2);
-    var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
-    $('#today').text(today);
     getWeek();
   }
 
@@ -19,6 +14,7 @@ function getTime() {
       type: 'GET'
     }).done(function(response) {
       updateWeek(response);
+      $('#today').text(response[0]);
     }).fail(function(msg){
       console.log(msg);
     });
