@@ -23,11 +23,7 @@ function f1() {
   $('#task').focus();
 }
 
-
-
-//
-
-//from codepen
+//from codepen, but streamlined:
 function changeTabs() {
   var tab_id = $(this).data().tab;
   $('.tab-link').removeClass('current');
