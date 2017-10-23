@@ -45,9 +45,14 @@ img {
 	padding: 10px;
 	margin: 10px;
 	border-style: solid;
-	height: 60px;
-	width: 400px;
+
 }
+
+#key1 {
+	height: 60px;
+	width: 450px;
+}
+
 
 #typeDiv, #posted{
 	display: none;
@@ -77,17 +82,21 @@ img {
 .box {
 	height:24px;
 	width:24px;
-	float: left;
 	margin-bottom: 8px;
+	border-width: thin;
+	border-color: black;
+	border-style: solid;
 }
 
 .type {
 	float: left;
 	margin: 5px;
+	margin-right: 15px;
 }
 
 .equality {
 	float: left;
+	margin-left: 5px
 }
 
 .row {
@@ -96,19 +105,54 @@ img {
 
 
 
-#bluebox, #bluebox2, #bluebox3 {
+#bluebox, #bluebox3 {
+	background-color: blue;
+	float: left;
+}
+#redbox, #redbox3 {
+	background-color: crimson;
+	float: left;
+}
+#yellowbox, #yellowbox3 {
+	background-color: Yellow;
+	float: left;
+}
+#greenbox, #greenbox3 {
+	background-color: forestGreen;
+	float: left;
+}
+
+#bluebox2 {
 	background-color: blue;
 }
-#redbox, #redbox2, #redbox3 {
-	background-color: crimson;
-}
-#yellowbox, #yellowbox2, #yellowbox3 {
-	background-color: Yellow;
-}
-#greenbox, #greenbox2, #greenbox3 {
+
+#greenbox2 {
 	background-color: forestGreen;
 }
 
+#yellowbox2 {
+	background-color: yellow;
+}
+
+#redbox2 {
+	background-color: crimson;
+}
+
+#greentype2 {
+	float: left;
+}
+
+#yellowtype2 {
+	float: left;
+}
+
+#redtype2 {
+	float: left;
+}
+
+#bluetype2 {
+	float: left;
+}
 
 
 td {
@@ -124,4 +168,18 @@ tr  {
 
 table, th, td {
 	border: 1px solid black;
+}
+
+.calKey {
+	border: none;
+	margin: 5px;
+}
+
+#calendarKey {
+	border-radius: 5px;
+	margin: 5px;
+}
+
+#edit, #del, #completion, #update, #submit, #addTypes {
+	cursor: pointer;
 }

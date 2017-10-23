@@ -34,220 +34,216 @@
       <li class="tab-link" data-tab="tab-3" id="tab-03">My Week</li>
     </ul>
 
-<div id="tab-1" class="tab-content current">
-  <h2 id="sub">Add a new task!</h2>
-  <div class="row">
-    <div class="col-md-5">
-      <div id="form">
+    <div id="tab-1" class="tab-content current">
+      <h2 id="sub">Add a new task!</h2>
+      <div class="row">
+        <div class="col-md-5">
+          <div id="form">
 
-        <table class="table table-striped">
-          <thead class="thead-inverse">
-          </thead>
-          <tbody>
-            <tr><td>Task: </td><td><input type="text" id="task" class="formIn"/></td><td></td></tr>
-            <tr><td>Type: </td><td><select id="typeSelect">
-              <option value="1" data-id="blue" id="option1">academics</option>
-              <option value="2" data-id="green" id="option2">economic</option>
-              <option value="3" data-id="red" id="option3">chores</option>
-              <option value="4" data-id="yellow" id="option4">self-care</option>
-            </select></td><td><button id="addTypes" class="btn btn-info">Edit types!</button></td></tr>
-            <tr><td>Description: </td><td><input type="text" id="desc" class="formIn"/></td><td></td></tr>
-            <tr><td>Due: </td><td><input id="due" class="formIn"/></td><td></td></tr>
-          </tbody>
-        </table>
-        <button id="submit" class="btn btn-primary">Submit/!!?!?</button>
-        <div id="posted">
-          <div id="yay">
-            Posted new task!
+            <table class="table table-striped">
+              <thead class="thead-inverse">
+              </thead>
+              <tbody>
+                <tr><td>Task: </td><td><input type="text" id="task" class="formIn"/></td><td></td></tr>
+                <tr><td>Type: </td><td><select id="typeSelect">
+                  <option value="1" data-id="blue" id="option1">academics</option>
+                  <option value="2" data-id="green" id="option2">economic</option>
+                  <option value="3" data-id="red" id="option3">chores</option>
+                  <option value="4" data-id="yellow" id="option4">self-care</option>
+                </select></td><td><button id="addTypes" class="btn btn-info">Edit types!</button></td></tr>
+                <tr><td>Description: </td><td><input type="text" id="desc" class="formIn"/></td><td></td></tr>
+                <tr><td>Due: </td><td><input id="due" class="formIn"/></td><td></td></tr>
+              </tbody>
+            </table>
+            <button id="submit" class="btn btn-primary">Submit/!!?!?</button>
+            <div id="posted">
+              <div id="yay">
+                Posted new task!
+              </div>
+            </div>
           </div>
         </div>
-</div>
-</div>
 
-<div class="col-md-3">
-
-</div>
-
-<div id="typeDiv" class="col-md-4">
-  <table class="table table-striped">
-    <thead class="thead-inverse">
-      <tr><th></th><th>Type name</th></tr>
-    </thead>
-    <tr>
-      <td><div id="bluebox3" class="box"></div></td>
-      <td><input type="text" id="blue" data-id="blue"/></td>
-    </tr>
-    <tr>
-      <td><div id="greenbox3" class="box"></div></td>
-      <td><input type="text" id="green" data-id="green"/></td></tr>
-      <tr>
-        <td><div id="redbox3" class="box"></div></td>
-        <td><input type="text" id="red" data-id="red"/></td></tr>
-        <tr>
-          <td><div id="yellowbox3" class="box"></div></td>
-          <td><input type="text" id="yellow" data-id="yellow"/></td></tr>
-        </table>
-        <button id="update" class="btn btn-primary">Update types!</button>
-      </div>
-
-    </div>
-
-    <div class="row">
-      <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-
-  </div>
-  <div class="col-md-4">
-  </div>
-
-    </div>
-  </div>
-
-
-
-
-
-  <div id="tab-2" class="tab-content">
-    <div class="row">
-      <div id='filter'>
-        Filter by:
-        <select id="filterSelect">
-          <option value="0" data-id="0">Show all</option>
-          <option value="1" data-id="blue">academics</option>
-          <option value="2" data-id="green">economic</option>
-          <option value="3" data-id="red">chores</option>
-          <option value="4" data-id="yellow">self-care</option>
-        </select>
-        <button id="filterSend">Filter</button>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md">
-
-        <div id="key1">
-          <div id="bluebox" class="box">
-          </div>
-          <div class="equality">
-            =
-          </div>
-          <div id="bluetype" class="type">
-          </div>
-          <div id="greenbox" class="box">
-          </div>
-          <div class="equality">
-            =
-          </div>
-          <div id="greentype" class="type">
-          </div>
-          <div id="redbox" class="box">
-          </div>
-          <div class="equality">
-            =
-          </div>
-          <div id="redtype" class="type">
-          </div>
-          <div id="yellowbox" class="box">
-          </div>
-          <div class="equality">
-            =
-          </div>
-          <div id="yellowtype" class="type">
-          </div>
+        <div class="col-md-3">
 
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <table class="table table-striped">
-        <thead class="thead-inverse">
-          <tr>
-            <th>Task</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Due Date</th>
-            <th>Completed?</th>
-            <th>Edit?</th>
-            <th>Delete?</th>
-          </tr>
-        </thead>
-        <tbody id ="viewTasks">
-        </tbody>
-      </table>
-    </div>
-  </div>
 
-
-
-
-
-
-  <div id="tab-3" class="tab-content">
-    <div class="row">
-      <div> Today's date:
-        <div id="today">
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <table id="calendar" class="table table-striped">
-          <thead id="weekhead" class="thead-inverse">
-
-          </thead>
-          <tbody id="week">
+        <div id="typeDiv" class="col-md-4">
+          <table class="table table-striped">
+            <thead class="thead-inverse">
+              <tr><th></th><th>Type name</th></tr>
+            </thead>
             <tr>
-              <td><ul id="day1" class="day"></ul></td>
-              <td><ul id="day2" class="day"></ul></td>
-              <td><ul id="day3" class="day"></ul></td>
-              <td><ul id="day4" class="day"></ul></td>
-              <td><ul id="day5" class="day"></ul></td>
-              <td><ul id="day6" class="day"></ul></td>
-              <td><ul id="day7" class="day"></ul></td>
+              <td><div id="bluebox3" class="box"></div></td>
+              <td><input type="text" id="blue" data-id="blue"/></td>
             </tr>
-          </tbody>
+            <tr>
+              <td><div id="greenbox3" class="box"></div></td>
+              <td><input type="text" id="green" data-id="green"/></td></tr>
+              <tr>
+                <td><div id="redbox3" class="box"></div></td>
+                <td><input type="text" id="red" data-id="red"/></td></tr>
+                <tr>
+                  <td><div id="yellowbox3" class="box"></div></td>
+                  <td><input type="text" id="yellow" data-id="yellow"/></td></tr>
+                </table>
+                <button id="update" class="btn btn-primary">Update types!</button>
+              </div>
 
-        </table>
-      </div>
-    </div>
-    <div class="row">
-      <div id="key2">
-        <div id="bluebox2" class="box">
-        </div>
-        <div class="equality">
-          =
-        </div>
-        <div id="bluetype2" class="type">
-        </div>
-        <div id="greenbox2" class="box">
-        </div>
-        <div class="equality">
-          =
-        </div>
-        <div id="greentype2" class="type">
-        </div>
-        <div id="redbox2" class="box">
-        </div>
-        <div class="equality">
-          =
-        </div>
-        <div id="redtype2" class="type">
-        </div>
-        <div id="yellowbox2" class="box">
-        </div>
-        <div class="equality">
-          =
-        </div>
-        <div id="yellowtype2" class="type">
-        </div>
+            </div>
 
-      </div>
-    </div>
-  </div>
+            <div class="row">
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-4">
 
-</div>
+              </div>
+              <div class="col-md-4">
+              </div>
+
+            </div>
+          </div>
 
 
-</body>
-</html>
+
+
+
+          <div id="tab-2" class="tab-content">
+            <div class="row">
+              <div id='filter'>
+                Filter by:
+                <select id="filterSelect">
+                  <option value="0" data-id="0">Show all</option>
+                  <option value="1" data-id="blue">academics</option>
+                  <option value="2" data-id="green">economic</option>
+                  <option value="3" data-id="red">chores</option>
+                  <option value="4" data-id="yellow">self-care</option>
+                </select>
+                <button id="filterSend">Filter</button>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md">
+
+                <div id="key1">
+                  <div id="bluebox" class="box">
+                  </div>
+                  <div class="equality">
+                    =
+                  </div>
+                  <div id="bluetype" class="type">
+                  </div>
+                  <div id="greenbox" class="box">
+                  </div>
+                  <div class="equality">
+                    =
+                  </div>
+                  <div id="greentype" class="type">
+                  </div>
+                  <div id="redbox" class="box">
+                  </div>
+                  <div class="equality">
+                    =
+                  </div>
+                  <div id="redtype" class="type">
+                  </div>
+                  <div id="yellowbox" class="box">
+                  </div>
+                  <div class="equality">
+                    =
+                  </div>
+                  <div id="yellowtype" class="type">
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <table class="table table-striped">
+                <thead class="thead-inverse">
+                  <tr>
+                    <th>Task</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Due Date</th>
+                    <th>Completed?</th>
+                    <th>Edit?</th>
+                    <th>Delete?</th>
+                  </tr>
+                </thead>
+                <tbody id ="viewTasks">
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+
+
+
+
+
+          <div id="tab-3" class="tab-content">
+            <div class="row">
+              <div> Today's date:
+                <div id="today">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <table id="calendar" class="table table-striped">
+                  <thead id="weekhead" class="thead-inverse">
+
+                  </thead>
+                  <tbody id="week">
+                    <tr>
+                      <td><ul id="day1" class="day"></ul></td>
+                      <td><ul id="day2" class="day"></ul></td>
+                      <td><ul id="day3" class="day"></ul></td>
+                      <td><ul id="day4" class="day"></ul></td>
+                      <td><ul id="day5" class="day"></ul></td>
+                      <td><ul id="day6" class="day"></ul></td>
+                      <td><ul id="day7" class="day"></ul></td>
+                    </tr>
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+
+              <table id="calendarKey">
+                <tr>
+                  <td class="calKey"><div id='bluebox2' class='box'>
+                  </div></td>
+                  <td class="calKey"><div id='bluetype2' class='type'>
+                  </div></td>
+                </tr>
+                <tr>
+                  <td class="calKey"><div id='greenbox2' class='box'>
+                  </div></td>
+                  <td class="calKey"><div id='greentype2' class='type'>
+                  </div></td>
+                </tr>
+                <tr>
+                  <td class="calKey"><div id='redbox2' class='box'>
+                  </div></td>
+                  <td class="calKey"><div id='redtype2' class='type'>
+                  </div></td>
+                </tr>
+                <tr>
+                  <td class="calKey"><div id='yellowbox2' class='box'>
+                  </div></td>
+                  <td class="calKey"><div id='yellowtype2' class='type'>
+                  </div></td>
+                </tr>
+              </table>
+
+
+          </div>
+
+        </div>
+
+
+      </body>
+      </html>

@@ -92,11 +92,10 @@ function postTask(task) {
 
 /*
 --want animation upon completion of task, prob append an image?
---form validation
 --highlight overdue tasks in red
 --add a clear history button
---interesting bug: when you click a button in filtered stage it will return to unfiltered
---colors: 94 in client,
+--def fix the legend in "My week"
+--fix edit button
 */
 
 //all of this is extra files to test:
