@@ -221,6 +221,8 @@ router.put('/:id', function(req,res){
   }); // END POOL
 }); //END PUT ROUTE
 
+
+//abandoned edit button for the time being:
 router.put('/:id', function(req, res){
   var taskId = req.params.id;
   var task = req.body;

@@ -6,6 +6,7 @@ $(document).ready(f1);
 
 var editingId = 0;
 var editing = false;
+var history = 0;
 
 
 //click handlers:
@@ -22,6 +23,7 @@ function f1() {
   $('#viewTasks').on('click', '#completion', completeTask);
   $('#viewTasks').on('click', '#edit', editTask);
   $('#filterSend').on('click', filterTasks);
+  $('#clearHistory').on('click', clearHistory);
   getTasks();
   getTime();
   getTypes();
@@ -60,6 +62,14 @@ function subClicked() {
     $('#due').focus();
     return;
   }
+  //
+  // function updateText() {
+  //   $('#sub').text('New task:');
+  // }
+  //
+  // function updateText2() {
+  //   $('#sub').text('Please submit again!!!!');
+  // }
 
   //check whether editing or adding:
   if (editing) {
@@ -90,8 +100,8 @@ function postTask(task) {
   getWeek();
 }
 
-
-//called when edit button is clicked:
+// abandoned edit button for the time being:
+// called when edit button is clicked:
 function editTask() {
   editing = true;
   editingId = $(this).data().id;
@@ -133,14 +143,47 @@ function updateTask(task) {
 }
 
 
+// abandoned clear history button for the time being:
+function clearHistory() {
+  // var x = $('#viewTasks > tr:last').children();
+  // var btn = x[5];
+  // var z = $(btn).children();
+  // var data = $(z).data().id;
+  // console.log('welcome to clear...', data);
+
+  var al = $('#viewTasks').children();
+  // console.log(al[4]);
+  var max = 0;
+  var maxUnit = '';
+
+  for (var i = 0; i < al.length; i += 1) {
+    var y = al[i];
+    var z = $(y).data().id;
+    var x = Number(z);
+    // console.log(y, z, x);
+    if (x > max) {
+      max = x;
+      maxUnit = y;
+    }
+  }
+  console.log( maxUnit);
+  history = max;
+
+
+}
+
+
 
 
 /*
 --want animation upon completion of task, prob append an image?
---highlight overdue tasks in red
---add a clear history button
---def fix the legend in "My week"
---fix edit button
+-I should learn spinning animations, also making something appear over where existing things are on the DOM
+--highlight overdue tasks in red, or some indication
+--add a clear history button:
+-kind of hard to select the highest id value in the table...just go all the way to DB? (Ok solved)
+-the thing is, i don't want the user to be able to delete the DB,
+-only to affect what's displayed on the DOM
+--fix edit button: it's pretty messed up
 */
 
 //all of this is extra files to test:
