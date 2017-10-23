@@ -1,23 +1,20 @@
 
-var editingId = 0;
-var editing = false;
-
+//called when filter button is clicked:
 function filterTasks() {
   var filter = $('#filterSelect option:selected');
   // console.log(filter.text(), 'hi', filter.data().id);
-
   $.ajax({
     url: '/tasks/' + filter.data().id,
     type: 'GET'
   }).done(function(response) {
     appendTasks(response);
     filterAll = filter.data().id;
-
   }).fail(function(msg) {
     console.log(msg);
   });
 }
 
+//called when delete button is clicked:
 function deleteTask() {
   var taskId = $(this).data("id");
   // console.log("deleted task ...",  $(this).data("id"));
@@ -37,50 +34,16 @@ function deleteTask() {
   return false;
 }
 
+//called when complete button is clicked:
 function completeTask() {
   var taskId = $(this).data("id");
   // console.log('completing task..', taskId);
-
   $.ajax ({
     type: "PUT",
     url: '/tasks/'+ taskId,
   }).done(function(response){
-    // console.log(response);
+    console.log(response);
     getTasks();
   });
   getWeek();
-}
-
-//these two functions deal with editing:
-function editTask() {
-  editing = true;
-  editingId = $(this).data('id');
-
-  console.log(editingId);
-  $('#sub').text('Edit task:');
-  var name = $(this).closest('tr').data().name; // data we set when appending
-  var desc = $(this).closest('tr').data().description;
-  var date = $(this).closest('tr').data().due;
-  console.log(name, desc, date);
-
-  $('#task').val(name);
-  $('#desc').val(desc);
-  $('#due').val(date);
-
-  $('.tab-link').removeClass('current');
-  $('.tab-content').removeClass('current');
-  $('#tab-01').addClass('current');
-  $('#tab-1').addClass('current');
-}
-
-function updateTask(task) {
-  $.ajax({
-    type: 'PUT',
-    url: 'tasks/' + editingId,
-    data: task
-  }).done(function(response) {
-    getTasks();
-  }).fail(function(msg) {
-    console.log(msg);
-  });
 }

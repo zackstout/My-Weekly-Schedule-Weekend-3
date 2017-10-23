@@ -1,8 +1,14 @@
 
-$(document).ready(f1);
-
 console.log('js');
 
+$(document).ready(f1);
+
+
+var editingId = 0;
+var editing = false;
+
+
+//click handlers:
 function f1() {
   console.log('jq');
   $('#due').datepicker();
@@ -32,7 +38,7 @@ function changeTabs() {
   $('#' + tab_id).addClass('current');
 }
 
-
+//call when submit btn is clicked:
 function subClicked() {
   var objectSent = {
     name: $('#task').val(),
@@ -57,16 +63,17 @@ function subClicked() {
 
   //check whether editing or adding:
   if (editing) {
+    console.log('now editing!');
       editing = false;
       $('#sub').text('New task:');
       updateTask(objectSent);
     } else {
+      console.log('now adding!');
       postTask(objectSent);
     }
 }
 
 function postTask(task) {
-
   $.ajax({
     url: '/tasks',
     type: 'POST',
@@ -81,6 +88,47 @@ function postTask(task) {
   $('.formIn').val('');
   $('#task').focus();
   getWeek();
+}
+
+
+//called when edit button is clicked:
+function editTask() {
+  editing = true;
+  editingId = $(this).data().id;
+
+  console.log('in editTask...editing no.', editingId);
+  $('#sub').text('Edit task:');
+  var name = $(this).closest('tr').data().name; // data we set when appending
+  var desc = $(this).closest('tr').data().description;
+  var date = $(this).closest('tr').data().due;
+  console.log(name, desc, date);
+
+//set input values:
+  $('#task').val(name);
+  $('#desc').val(desc);
+  $('#due').val(date);
+
+//change to first tab:
+  $('.tab-link').removeClass('current');
+  $('.tab-content').removeClass('current');
+  $('#tab-01').addClass('current');
+  $('#tab-1').addClass('current');
+}
+
+//called when submit is clicked in editing mode:
+function updateTask(task) {
+  $.ajax({
+    type: 'PUT',
+    url: '/tasks/' + editingId,
+    data: task
+  }).done(function(response) {
+    console.log(response);
+    getTasks();
+  }).fail(function(msg) {
+    console.log(msg);
+  });
+  $('#posted').show().delay(300).fadeOut(1800);
+
 }
 
 

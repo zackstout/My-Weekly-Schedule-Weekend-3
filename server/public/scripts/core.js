@@ -1,4 +1,6 @@
 
+//interaction with the DOM -- get and append functions:
+
 var editing = false;
 var editingId = 0;
 //
@@ -51,7 +53,7 @@ function appendTasks(tasks) {
       desc = '';
     }
 
-    $('#viewTasks').append('<tr id="' + i + '" data-description="' +task.description+'" data-name="' + task.name + '" data-due=" ' + task.due + '" ><td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + desc + '</td> <td>' + task.due + '</td>  <td> '+ completion +'  </td> <td> <button id="edit" class="btn btn-warning" data-id=" ' + task.id + '"> Edit </button> </td> <td> <button id="del" class="btn btn-danger" data-id=" ' + task.id + '"> Delete </button> </td></tr>');
+    $('#viewTasks').append('<tr id="' + i + '" data-description="' +task.description+'" data-name="' + task.name + '" data-due=" ' + task.due + '" ><td>' + task.name + '</td> <td>' + task.type + '</td> <td>' + desc + '</td> <td>' + task.due + '</td>  <td>' + completion +  '</td> <td> <button id="edit" class="btn btn-warning" data-id=" ' + task.id + '"> Edit </button> </td> <td> <button id="del" class="btn btn-danger" data-id=" ' + task.id + '"> Delete </button> </td></tr>');
 
     var z = $('#'+i).data().name;
 

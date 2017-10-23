@@ -224,6 +224,7 @@ router.put('/:id', function(req,res){
 router.put('/:id', function(req, res){
   var taskId = req.params.id;
   var task = req.body;
+  console.log(task);
   pool.connect(function (errorConnectingToDb, db, done) {
     if (errorConnectingToDb) {
       console.log('Error connecting', errorConnectingToDb);
