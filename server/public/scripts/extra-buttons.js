@@ -55,13 +55,17 @@ function completeTask() {
 function editTask() {
   editing = true;
   editingId = $(this).data('id');
+
   console.log(editingId);
-  $('#sub').text('Editing task!');
+  $('#sub').text('Edit task:');
   var name = $(this).closest('tr').data().name; // data we set when appending
   var desc = $(this).closest('tr').data().description;
-  console.log(name, desc);
-  $('#name').val(name);
+  var date = $(this).closest('tr').data().due;
+  console.log(name, desc, date);
+
+  $('#task').val(name);
   $('#desc').val(desc);
+  $('#due').val(date);
 
   $('.tab-link').removeClass('current');
   $('.tab-content').removeClass('current');

@@ -58,7 +58,7 @@ function subClicked() {
   //check whether editing or adding:
   if (editing) {
       editing = false;
-      $('#sub').text('Add a new task!');
+      $('#sub').text('New task:');
       updateTask(objectSent);
     } else {
       postTask(objectSent);

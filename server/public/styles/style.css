@@ -33,6 +33,15 @@ ul.tabs li.current{
 	background-color: powderBlue;
 }
 
+h2 {
+	text-transform: uppercase;
+	font-family: Garamond;
+	margin-left: 22px;
+	background-color: rgba(255, 0, 0, 0.3);
+	width: 180px;
+
+}
+
 img {
 	height: 30px;
 	width: 30px;
