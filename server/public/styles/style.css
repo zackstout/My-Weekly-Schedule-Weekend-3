@@ -51,7 +51,7 @@ img {
 }
 
 #today2 {
-	margin-left: 40px;
+	margin-left: 55px;
 }
 
 
@@ -83,7 +83,6 @@ img {
 .box {
 	height:24px;
 	width:24px;
-	margin-bottom: 8px;
 	border-width: thin;
 	border-color: black;
 	border-style: solid;
@@ -178,7 +177,7 @@ table, th, td {
 
 #calendarKey {
 	border-radius: 5px;
-	margin: 5px;
+margin-left: 40px;
 }
 
 #edit, #del, #completion, #update, #submit, #addTypes {

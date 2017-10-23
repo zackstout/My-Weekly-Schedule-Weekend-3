@@ -4,7 +4,7 @@ var editing = false;
 
 function filterTasks() {
   var filter = $('#filterSelect option:selected');
-  console.log(filter.text(), 'hi', filter.data().id);
+  // console.log(filter.text(), 'hi', filter.data().id);
 
   $.ajax({
     url: '/tasks/' + filter.data().id,
@@ -55,7 +55,7 @@ function completeTask() {
 function editTask() {
   editing = true;
   editingId = $(this).data('id');
-  // console.log(editingId);
+  console.log(editingId);
   $('#sub').text('Editing task!');
   var name = $(this).closest('tr').data().name; // data we set when appending
   var desc = $(this).closest('tr').data().description;
