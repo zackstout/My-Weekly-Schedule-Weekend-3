@@ -16,6 +16,6 @@ yellow varchar(40));
 INSERT INTO "typesoftasks" ("blue", "green", "red", "yellow")
 VALUES ('academics', 'chores', 'job', 'social life');
 
-INSERT INTO "taskstodo" ("name", "type", "description", "due", "complete")
-VALUES ('mow yard', 'chores', 'mow that!', '10/21/2017', false),
-('clean room', 'chores', 'clean that!', 'yesterday', false);
+INSERT INTO "taskstodo" ("name", "type", "description", "due", "complete", "typecolor")
+VALUES ('mow yard', 'chores', 'mow that!', '10/21/2017', false, 'yellow'),
+('clean room', 'chores', 'clean that!', 'yesterday', false, 'red');
