@@ -123,6 +123,7 @@ function updateTask(task) {
     data: task
   }).done(function(response) {
     console.log(response);
+    // postTask(response);
     getTasks();
   }).fail(function(msg) {
     console.log(msg);

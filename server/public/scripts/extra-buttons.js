@@ -1,4 +1,6 @@
 
+//filter, delete and complete buttons:
+
 //called when filter button is clicked:
 function filterTasks() {
   var filter = $('#filterSelect option:selected');

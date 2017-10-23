@@ -238,8 +238,11 @@ router.put('/:id', function(req, res){
         if (errorMakingQuery) {
           console.log('Error making query', errorMakingQuery);
           res.sendStatus(500);
+
         } else {
           // Send back success!
+          // console.log(task);
+          // res.send(task);
           res.sendStatus(201);
         }
       }); // END QUERY
