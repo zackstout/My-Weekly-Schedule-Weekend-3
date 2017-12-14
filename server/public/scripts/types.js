@@ -112,6 +112,8 @@ function updateOptions(object) {
 function updateFilter(object) {
   var $el2 = $("#filterSelect");
   $el2.empty();
+  //is $ equivalent to $(object)??
+  //what is the attr part doing? could we remove it?
   $.each(object, function(key,value) {
     // console.log(key, value);
     $el2.append($("<option></option>")
